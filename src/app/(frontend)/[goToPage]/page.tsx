@@ -36,6 +36,7 @@ export default async function BooksPage({ params }: BooksPageProps) {
               cover={book.cover.sizes.thumbnail.url}
               author={book.author.name}
               genre={book.genre.name}
+              stock={book.stock}
             ></BookCard>
           </Link>
         ))}

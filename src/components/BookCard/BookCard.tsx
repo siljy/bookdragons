@@ -8,9 +8,10 @@ type BookCardProps = {
   author: string
   cover: string
   genre: string
+  stock: number
 }
 
-export default function BookCard({ title, alt, cover, author, genre }: BookCardProps) {
+export default function BookCard({ title, alt, cover, author, genre, stock }: BookCardProps) {
   //Senere: refaktorere props fra page.tsx eller legge til en bildetype for å hente ut bredde/høyde
   return (
     <div>
@@ -19,7 +20,11 @@ export default function BookCard({ title, alt, cover, author, genre }: BookCardP
       <p>{author}</p>
       <p>{genre}</p>
       <div>
-        <Button type="button" variant="primary" text="Legg i handlekurv"></Button>
+        <Button
+          type="button"
+          variant={stock <= 0 ? 'disabled' : 'primary'}
+          text="Legg i handlekurv"
+        ></Button>
       </div>
     </div>
   )
