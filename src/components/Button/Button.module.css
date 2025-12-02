@@ -1,0 +1,25 @@
+.button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
+  font-size: 0.8rem;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.primary {
+  background-color: var(--primary);
+  color: white;
+  border: solid 0.1rem var(--primary-4);
+}
+
+.secondary {
+  background-color: var(--secondary);
+  color: white;
+  border: solid 0.1rem var(--secondary-4);
+}
+
+.disabled {
+  background-color: var(--disabled);
+}

@@ -1,5 +1,28 @@
 :root {
   --font-mono: 'Roboto Mono', monospace;
+
+  /* Hovedfarger */
+  --primary: #480c31;
+  --secondary: #694f11;
+  --background: #0b0a0a;
+  --disabled: #cbcaca;
+  --error: #cd353b;
+
+  /* Variasjoner av hovedfarger */
+  --primary-1: #916981;
+  --primary-2: #6c3a59;
+  --primary-3: #3a0a27;
+  --primary-4: #2b071d;
+
+  --secondary-1: #ad9d6d;
+  --secondary-2: #8b763f;
+  --secondary-3: #543f0e;
+  --secondary-4: #3f2f0a;
+
+  --background-1: #4f4e4e;
+  --background-2: #2d2c2c;
+  --background-3: #090808;
+  --background-4: #070606;
 }
 
 * {
@@ -10,7 +33,7 @@ html {
   font-size: 18px;
   line-height: 32px;
 
-  background: rgb(0, 0, 0);
+  background: var(--background);
   -webkit-font-smoothing: antialiased;
 }
 
