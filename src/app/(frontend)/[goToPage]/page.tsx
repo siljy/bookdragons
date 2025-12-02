@@ -32,6 +32,7 @@ export default async function BooksPage({ params }: BooksPageProps) {
             Payload */}
             <BookCard
               title={book.title}
+              alt={book.cover.alt}
               cover={book.cover.sizes.thumbnail.url}
               author={book.author.name}
               genre={book.genre.name}
