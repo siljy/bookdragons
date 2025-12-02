@@ -173,8 +173,7 @@ export interface Media {
  */
 export interface Author {
   id: number;
-  firstname: string;
-  lastname: string;
+  name: string;
   /**
    * Kort tekst om forfatteren
    */
@@ -405,8 +404,7 @@ export interface MediaSelect<T extends boolean = true> {
  * via the `definition` "authors_select".
  */
 export interface AuthorsSelect<T extends boolean = true> {
-  firstname?: T;
-  lastname?: T;
+  name?: T;
   presentation?: T;
   updatedAt?: T;
   createdAt?: T;
