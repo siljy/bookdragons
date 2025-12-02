@@ -10,18 +10,12 @@ export const Authors: CollectionConfig = {
     plural: 'Forfattere',
   },
   admin: {
-    useAsTitle: 'lastname',
+    useAsTitle: 'name',
   },
   fields: [
     {
-      name: 'firstname',
-      label: 'Fornavn',
-      type: 'text',
-      required: true,
-    },
-    {
-      name: 'lastname',
-      label: 'Etternavn',
+      name: 'name',
+      label: 'Navn',
       type: 'text',
       required: true,
     },
