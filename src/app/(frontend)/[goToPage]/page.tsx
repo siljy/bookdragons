@@ -2,6 +2,7 @@ import config from '@/payload.config'
 import '../styles.css'
 import { getPayload } from 'payload'
 import Link from 'next/link'
+import BookCard from '@/components/BookCard/BookCard'
 
 type BooksPageProps = {
   params: Promise<{ goToPage: string }>
@@ -16,6 +17,7 @@ export default async function BooksPage({ params }: BooksPageProps) {
     collection: 'books',
     page,
     limit: 9,
+    depth: 2,
   })
 
   const { docs: books, totalPages } = queryResult
@@ -23,6 +25,18 @@ export default async function BooksPage({ params }: BooksPageProps) {
   return (
     <main>
       <h1>BookDragons bøker</h1>
+      <section>
+        {books.map((book) => (
+          //Legg inn typeguard på author, sjanger og omslag siden det kommer som objekt fra Payload
+          <BookCard
+            key={book.id}
+            title={book.title}
+            cover={book.cover.sizes.thumbnail.url}
+            author={book.author.name}
+            genre={book.genre.name}
+          ></BookCard>
+        ))}
+      </section>
 
       {/* Framgangsmåte for paginering er hentet fra MinGA under Julesanger med paginering/Redirect og URL-parametre: 
       https://lms.gokstadakademiet.no/course/view.php?id=349#module-16273 */}
