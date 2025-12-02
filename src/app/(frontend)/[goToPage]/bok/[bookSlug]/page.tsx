@@ -29,7 +29,7 @@ export default async function BookPage({ params }: BookPageParams) {
   return (
     <main>
       <h1>{book.title}</h1>
-      
+
     </main>
   )
 }
