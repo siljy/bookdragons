@@ -72,6 +72,7 @@ export interface Config {
     authors: Author;
     genres: Genre;
     bookcovers: Bookcover;
+    books: Book;
     'payload-kv': PayloadKv;
     'payload-locked-documents': PayloadLockedDocument;
     'payload-preferences': PayloadPreference;
@@ -84,6 +85,7 @@ export interface Config {
     authors: AuthorsSelect<false> | AuthorsSelect<true>;
     genres: GenresSelect<false> | GenresSelect<true>;
     bookcovers: BookcoversSelect<false> | BookcoversSelect<true>;
+    books: BooksSelect<false> | BooksSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
     'payload-preferences': PayloadPreferencesSelect<false> | PayloadPreferencesSelect<true>;
@@ -241,6 +243,35 @@ export interface Bookcover {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "books".
+ */
+export interface Book {
+  id: number;
+  title: string;
+  /**
+   * Kort beskrivelse av boka
+   */
+  description: string;
+  cover: number | Bookcover;
+  author: number | Author;
+  genre: number | Genre;
+  /**
+   * Stikkord om bokas tema
+   */
+  theme: string;
+  /**
+   * Aldersgruppe anbefalt for boka: barn, ungdom eller voksen.
+   */
+  ages: 'Barn' | 'Ungdom' | 'Voksen';
+  /**
+   * Hvor mange av denne boken er på lager?
+   */
+  stock: number;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -282,6 +313,10 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'bookcovers';
         value: number | Bookcover;
+      } | null)
+    | ({
+        relationTo: 'books';
+        value: number | Book;
       } | null);
   globalSlug?: string | null;
   user: {
@@ -437,6 +472,22 @@ export interface BookcoversSelect<T extends boolean = true> {
               filename?: T;
             };
       };
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "books_select".
+ */
+export interface BooksSelect<T extends boolean = true> {
+  title?: T;
+  description?: T;
+  cover?: T;
+  author?: T;
+  genre?: T;
+  theme?: T;
+  ages?: T;
+  stock?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
