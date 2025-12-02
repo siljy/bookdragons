@@ -3,6 +3,7 @@ import '../styles.css'
 import { getPayload } from 'payload'
 import Link from 'next/link'
 import BookCard from '@/components/BookCard/BookCard'
+import Button from '@/components/Button/Button'
 
 type BooksPageProps = {
   params: Promise<{ goToPage: string }>
@@ -27,18 +28,24 @@ export default async function BooksPage({ params }: BooksPageProps) {
       <h1>BookDragons bøker</h1>
       <section>
         {books.map((book) => (
-          <Link href={`${goToPage}/bok/${book.slug}`} key={book.id}>
-            {/* Legg inn typeguard på author, sjanger og omslag siden det kommer som objekt fra
+          <div key={book.id}>
+            <Link href={`${goToPage}/bok/${book.slug}`} key={book.id}>
+              {/* Legg inn typeguard på author, sjanger og omslag siden det kommer som objekt fra
             Payload */}
-            <BookCard
-              title={book.title}
-              alt={book.cover.alt}
-              cover={book.cover.sizes.thumbnail.url}
-              author={book.author.name}
-              genre={book.genre.name}
-              stock={book.stock}
-            ></BookCard>
-          </Link>
+              <BookCard
+                title={book.title}
+                alt={book.cover.alt}
+                cover={book.cover.sizes.thumbnail.url}
+                author={book.author.name}
+                genre={book.genre.name}
+              ></BookCard>
+            </Link>
+            <Button
+              type="button"
+              variant={book.stock <= 0 ? 'disabled' : 'primary'}
+              text={book.stock <= 0 ? 'Ikke på lager' : 'Legg i handlekurv'}
+            ></Button>
+          </div>
         ))}
       </section>
 

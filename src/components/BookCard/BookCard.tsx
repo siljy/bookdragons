@@ -1,6 +1,6 @@
 import styles from '.BookCard.module.css'
 import Image from 'next/image'
-import Button from '../Button/Button'
+// import Button from '../Button/Button'
 
 type BookCardProps = {
   title: string
@@ -14,18 +14,11 @@ type BookCardProps = {
 export default function BookCard({ title, alt, cover, author, genre, stock }: BookCardProps) {
   //Senere: refaktorere props fra page.tsx eller legge til en bildetype for å hente ut bredde/høyde
   return (
-    <div>
+    <>
       <h2>{title}</h2>
       <Image src={cover} alt={alt} width={200} height={300}></Image>
       <p>{author}</p>
       <p>{genre}</p>
-      <div>
-        <Button
-          type="button"
-          variant={stock <= 0 ? 'disabled' : 'primary'}
-          text="Legg i handlekurv"
-        ></Button>
-      </div>
-    </div>
+    </>
   )
 }

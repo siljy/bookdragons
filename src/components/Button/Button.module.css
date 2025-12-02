@@ -22,4 +22,5 @@
 
 .disabled {
   background-color: var(--disabled);
+  border: solid 0.1rem var(--background-2);
 }
