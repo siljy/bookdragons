@@ -77,5 +77,11 @@ export const Books: CollectionConfig = {
       type: 'number',
       required: true,
     },
+    {
+      name: 'price',
+      label: 'Pris',
+      type: 'number',
+      required: true,
+    },
   ],
 }

@@ -266,6 +266,7 @@ export interface Book {
    * Hvor mange av denne boken er på lager?
    */
   stock: number;
+  price: number;
   updatedAt: string;
   createdAt: string;
 }
@@ -484,6 +485,7 @@ export interface BooksSelect<T extends boolean = true> {
   theme?: T;
   ages?: T;
   stock?: T;
+  price?: T;
   updatedAt?: T;
   createdAt?: T;
 }
