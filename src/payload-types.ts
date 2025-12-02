@@ -247,6 +247,7 @@ export interface Bookcover {
 export interface Book {
   id: number;
   title: string;
+  slug: string;
   /**
    * Kort beskrivelse av boka
    */
@@ -478,6 +479,7 @@ export interface BookcoversSelect<T extends boolean = true> {
  */
 export interface BooksSelect<T extends boolean = true> {
   title?: T;
+  slug?: T;
   description?: T;
   cover?: T;
   author?: T;

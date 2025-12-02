@@ -27,14 +27,16 @@ export default async function BooksPage({ params }: BooksPageProps) {
       <h1>BookDragons bøker</h1>
       <section>
         {books.map((book) => (
-          //Legg inn typeguard på author, sjanger og omslag siden det kommer som objekt fra Payload
-          <BookCard
-            key={book.id}
-            title={book.title}
-            cover={book.cover.sizes.thumbnail.url}
-            author={book.author.name}
-            genre={book.genre.name}
-          ></BookCard>
+          <Link href={`${goToPage}/bok/${book.slug}`} key={book.id}>
+            {/* Legg inn typeguard på author, sjanger og omslag siden det kommer som objekt fra
+            Payload */}
+            <BookCard
+              title={book.title}
+              cover={book.cover.sizes.thumbnail.url}
+              author={book.author.name}
+              genre={book.genre.name}
+            ></BookCard>
+          </Link>
         ))}
       </section>
 

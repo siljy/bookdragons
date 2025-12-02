@@ -20,6 +20,13 @@ export const Books: CollectionConfig = {
       required: true,
     },
     {
+      name: 'slug',
+      label: 'URL etter /bok',
+      type: 'text',
+      required: true,
+      unique: true,
+    },
+    {
       name: 'description',
       label: 'Beskrivelse',
       admin: {
