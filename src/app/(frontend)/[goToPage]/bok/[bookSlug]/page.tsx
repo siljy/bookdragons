@@ -3,6 +3,7 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import Image from 'next/image'
+import Link from 'next/link'
 
 type BookPageParams = {
   params: Promise<{ bookSlug: string }>
@@ -24,7 +25,12 @@ export default async function BookPage({ params }: BookPageParams) {
   const book = queryResults.docs[0]
 
   if (!book) {
-    return <div>Denne boken har vi ikke tilgang til, dessverre!</div>
+    return (
+      <div>
+        Denne boken har vi ikke tilgang til, dessverre!
+        <Link href={'/1'}>Gå tilbake til alle bøker</Link>
+      </div>
+    )
   }
 
   return (
