@@ -19,7 +19,7 @@ export default function BookCard({ title, alt, cover, author, genre }: BookCardP
       <p>{author}</p>
       <p>{genre}</p>
       <div>
-        <Button variant="primary" text="Legg i handlekurv"></Button>
+        <Button type="button" variant="primary" text="Legg i handlekurv"></Button>
       </div>
     </div>
   )
