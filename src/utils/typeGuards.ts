@@ -1,20 +1,29 @@
-// type Author = {
-//   id: number
-//   name: string
-//   presentation: string
-//   updatedAt: string
-//   createdAt: string
-// }
+import type { Bookcover } from '@/payload-types'
 
-// type AuthorFromPayload = Author | number
+type GuardTypes = {
+  sizes: {
+    thumbnail: {
+      url: string
+      width: number
+      height: number
+    }
+  }
+}
 
-// type AuthorFromPayloadWithoutNumber = Exclude<AuthorFromPayload, number>
+//Framgangsmåte hentet fra MinGA https://lms.gokstadakademiet.no/course/view.php?id=349#module-16132
+//Under Bildebehandling med Payload og Sharp/Hente frem bilder i Frontend
+export function hasThumbnail(photo: unknown): photo is Bookcover & GuardTypes {
+  if (!photo || typeof photo !== 'object' || !('sizes' in photo)) {
+    return false
+  }
 
-// type AuthorGuardTypes = {
-//   name: string
-//   presentation: string
-// }
+  const sizes = (photo as any).sizes
+  const thumbnail = sizes?.thumbnail
 
-// type AuthorWithAll = {
-
-// }
+  return (
+    thumbnail &&
+    typeof thumbnail.url === 'string' &&
+    typeof thumbnail.width === 'number' &&
+    typeof thumbnail.height === 'number'
+  )
+}
