@@ -49,12 +49,14 @@ export default async function BooksPage({ params }: BooksPageProps) {
           <div key={book.id}>
             <BookCard
               bookUrl={`${goToPage}/bok/${book.slug}`}
+              id={book.id}
               key={book.id}
               title={book.title}
               coverUrl={url}
               coverAlt={alt}
               coverWidth={width}
               coverHeight={height}
+              price={book.price}
               author={authorName}
               genre={genreName}
               stock={book.stock}
