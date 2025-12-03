@@ -1,10 +1,10 @@
 //Viser fram en bok
-
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import Image from 'next/image'
 import Link from 'next/link'
 import { hasAuthor, hasThumbnail, hasGenre } from '@/utils/typeGuards'
+import AddToCartButton from '@/components/AddToCartButton/AddToCartButton'
 
 type BookPageParams = {
   params: Promise<{ bookSlug: string }>
@@ -62,6 +62,7 @@ export default async function BookPage({ params }: BookPageParams) {
       <p>Aldersgruppe: {book.ages}</p>
       <p>På lager: {book.stock}</p>
       <p>Tilhører sjanger: {genreName}</p>
+      <AddToCartButton book={book}></AddToCartButton>
     </main>
   )
 }
