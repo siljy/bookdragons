@@ -1,6 +1,6 @@
-import type { Bookcover } from '@/payload-types'
+import type { Bookcover, Author, Genre } from '@/payload-types'
 
-type GuardTypes = {
+type CoverGuardTypes = {
   sizes: {
     thumbnail: {
       url: string
@@ -12,7 +12,7 @@ type GuardTypes = {
 
 //Framgangsmåte hentet fra MinGA https://lms.gokstadakademiet.no/course/view.php?id=349#module-16132
 //Under Bildebehandling med Payload og Sharp/Hente frem bilder i Frontend
-export function hasThumbnail(photo: unknown): photo is Bookcover & GuardTypes {
+export function hasThumbnail(photo: unknown): photo is Bookcover & CoverGuardTypes {
   if (!photo || typeof photo !== 'object' || !('sizes' in photo)) {
     return false
   }
@@ -25,5 +25,31 @@ export function hasThumbnail(photo: unknown): photo is Bookcover & GuardTypes {
     typeof thumbnail.url === 'string' &&
     typeof thumbnail.width === 'number' &&
     typeof thumbnail.height === 'number'
+  )
+}
+
+export function hasAuthor(author: unknown): author is Author {
+  if (!author || typeof author !== 'object') {
+    return false
+  }
+
+  return (
+    'name' in author &&
+    'presentation' in author &&
+    typeof author.name === 'string' &&
+    typeof author.presentation === 'string'
+  )
+}
+
+export function hasGenre(genre: unknown): genre is Genre {
+  if (!genre || typeof genre !== 'object') {
+    return false
+  }
+
+  return (
+    'name' in genre &&
+    'presentation' in genre &&
+    typeof genre.name === 'string' &&
+    typeof genre.presentation === 'string'
   )
 }

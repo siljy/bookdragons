@@ -4,7 +4,7 @@ import { getPayload } from 'payload'
 import Link from 'next/link'
 import BookCard from '@/components/BookCard/BookCard'
 import Button from '@/components/Button/Button'
-import { hasThumbnail } from '@/utils/typeGuards'
+import { hasThumbnail, hasAuthor, hasGenre } from '@/utils/typeGuards'
 
 type BooksPageProps = {
   params: Promise<{ goToPage: string }>
@@ -34,17 +34,26 @@ export default async function BooksPage({ params }: BooksPageProps) {
             return null
           }
 
+          if (!hasAuthor(book.author)) {
+            console.log('Forfatter eksisterer ikke', book.title)
+            return null
+          }
+
+          if (!hasGenre(book.genre)) {
+            console.log('Sjanger eksisterer ikke', book.title)
+            return null
+          }
+
           return (
             <div key={book.id}>
               <Link href={`${goToPage}/bok/${book.slug}`} key={book.id}>
-                {/* Legg inn typeguard på author, sjanger og omslag siden det kommer som objekt fra
-            Payload */}
                 <BookCard
                   title={book.title}
                   alt={book.cover.alt}
                   cover={book.cover.sizes.thumbnail.url}
                   author={book.author.name}
                   genre={book.genre.name}
+                  stock={book.stock}
                 ></BookCard>
               </Link>
               <Button

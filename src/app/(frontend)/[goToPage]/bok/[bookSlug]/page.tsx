@@ -4,6 +4,7 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import Image from 'next/image'
 import Link from 'next/link'
+import { hasThumbnail } from '@/utils/typeGuards'
 
 type BookPageParams = {
   params: Promise<{ bookSlug: string }>
@@ -32,14 +33,18 @@ export default async function BookPage({ params }: BookPageParams) {
       </div>
     )
   }
+  if (!hasThumbnail(book.cover)) {
+    console.log('Bildet eksisterer ikke', book.title)
+    return null
+  }
 
   return (
     <main>
       {/* Her må det legges på typeguard */}
       <Image
         src={book.cover.sizes.thumbnail.url}
-        width={200}
-        height={300}
+        width={book.cover.sizes.thumbnail.width}
+        height={book.cover.sizes.thumbnail.height}
         alt={book.cover.alt}
       ></Image>
       <h1>{book.title}</h1>
