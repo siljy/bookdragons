@@ -1,11 +1,31 @@
+'use client'
+
+import { useCartStore } from '@/store/cartStore'
 import CartItem from '../CartItem/CartItem'
 import styles from './Cart.module.css'
 
 export default function Cart() {
+  const cart = useCartStore((state) => state.cart)
+
+  let total = 0
+
+  cart.forEach((item) => {
+    total += item.price * item.quantity
+  })
+
   return (
-    <div className={styles.cart}>
+    <section className={styles.cart}>
       <h2>Handlekurv</h2>
-      <CartItem></CartItem>
-    </div>
+      {cart.map((item) => (
+        <CartItem
+          key={item.id}
+          id={item.id}
+          title={item.title}
+          price={item.price}
+          quantity={item.quantity}
+        ></CartItem>
+      ))}
+      <h3>Sum: {total}</h3>
+    </section>
   )
 }
