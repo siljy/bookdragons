@@ -1,5 +1,4 @@
 import config from '@/payload.config'
-import '../styles.css'
 import { getPayload } from 'payload'
 import Link from 'next/link'
 import BookCard from '@/components/BookCard/BookCard'
@@ -25,54 +24,51 @@ export default async function BooksPage({ params }: BooksPageProps) {
   const { docs: books, totalPages } = queryResult
 
   return (
-    <main>
-      <h1>BookDragons bøker</h1>
-      <section>
-        {books.map((book) => {
-          if (!hasThumbnail(book.cover)) {
-            console.log('Bildet eksisterer ikke', book.title)
-            return null
-          }
+    <section>
+      {books.map((book) => {
+        if (!hasThumbnail(book.cover)) {
+          console.log('Bildet eksisterer ikke', book.title)
+          return null
+        }
 
-          if (!hasAuthor(book.author)) {
-            console.log('Forfatter eksisterer ikke', book.title)
-            return null
-          }
+        if (!hasAuthor(book.author)) {
+          console.log('Forfatter eksisterer ikke', book.title)
+          return null
+        }
 
-          if (!hasGenre(book.genre)) {
-            console.log('Sjanger eksisterer ikke', book.title)
-            return null
-          }
+        if (!hasGenre(book.genre)) {
+          console.log('Sjanger eksisterer ikke', book.title)
+          return null
+        }
 
-          const { url, width, height } = book.cover.sizes.thumbnail
-          const { alt } = book.cover
-          const { name: authorName } = book.author
-          const { name: genreName } = book.genre
+        const { url, width, height } = book.cover.sizes.thumbnail
+        const { alt } = book.cover
+        const { name: authorName } = book.author
+        const { name: genreName } = book.genre
 
-          return (
-            <div key={book.id}>
-              <Link href={`${goToPage}/bok/${book.slug}`} key={book.id}>
-                <BookCard
-                  title={book.title}
-                  coverUrl={url}
-                  coverAlt={alt}
-                  coverWidth={width}
-                  coverHeight={height}
-                  author={authorName}
-                  genre={genreName}
-                  stock={book.stock}
-                  age={book.ages}
-                ></BookCard>
-              </Link>
-              <Button
-                type="button"
-                variant={book.stock <= 0 ? 'disabled' : 'primary'}
-                text={book.stock <= 0 ? 'Ikke på lager' : 'Legg i handlekurv'}
-              ></Button>
-            </div>
-          )
-        })}
-      </section>
+        return (
+          <div key={book.id}>
+            <Link href={`${goToPage}/bok/${book.slug}`} key={book.id}>
+              <BookCard
+                title={book.title}
+                coverUrl={url}
+                coverAlt={alt}
+                coverWidth={width}
+                coverHeight={height}
+                author={authorName}
+                genre={genreName}
+                stock={book.stock}
+                age={book.ages}
+              ></BookCard>
+            </Link>
+            <Button
+              type="button"
+              variant={book.stock <= 0 ? 'disabled' : 'primary'}
+              text={book.stock <= 0 ? 'Ikke på lager' : 'Legg i handlekurv'}
+            ></Button>
+          </div>
+        )
+      })}
 
       {/* Framgangsmåte for paginering er hentet fra MinGA under Julesanger med paginering/Redirect og URL-parametre: 
       https://lms.gokstadakademiet.no/course/view.php?id=349#module-16273 */}
@@ -85,6 +81,6 @@ export default async function BooksPage({ params }: BooksPageProps) {
           </Link>
         )
       })}
-    </main>
+    </section>
   )
 }
