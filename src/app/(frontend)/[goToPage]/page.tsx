@@ -2,7 +2,6 @@ import config from '@/payload.config'
 import { getPayload } from 'payload'
 import Link from 'next/link'
 import BookCard from '@/components/BookCard/BookCard'
-import Button from '@/components/Button/Button'
 import { hasThumbnail, hasAuthor, hasGenre } from '@/utils/typeGuards'
 
 type BooksPageProps = {
@@ -48,24 +47,19 @@ export default async function BooksPage({ params }: BooksPageProps) {
 
         return (
           <div key={book.id}>
-            <Link href={`${goToPage}/bok/${book.slug}`} key={book.id}>
-              <BookCard
-                title={book.title}
-                coverUrl={url}
-                coverAlt={alt}
-                coverWidth={width}
-                coverHeight={height}
-                author={authorName}
-                genre={genreName}
-                stock={book.stock}
-                age={book.ages}
-              ></BookCard>
-            </Link>
-            <Button
-              type="button"
-              variant={book.stock <= 0 ? 'disabled' : 'primary'}
-              text={book.stock <= 0 ? 'Ikke på lager' : 'Legg i handlekurv'}
-            ></Button>
+            <BookCard
+              bookUrl={`${goToPage}/bok/${book.slug}`}
+              key={book.id}
+              title={book.title}
+              coverUrl={url}
+              coverAlt={alt}
+              coverWidth={width}
+              coverHeight={height}
+              author={authorName}
+              genre={genreName}
+              stock={book.stock}
+              age={book.ages}
+            ></BookCard>
           </div>
         )
       })}
