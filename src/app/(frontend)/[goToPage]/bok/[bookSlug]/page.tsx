@@ -4,7 +4,7 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import Image from 'next/image'
 import Link from 'next/link'
-import { hasThumbnail } from '@/utils/typeGuards'
+import { hasAuthor, hasThumbnail } from '@/utils/typeGuards'
 
 type BookPageParams = {
   params: Promise<{ bookSlug: string }>
@@ -35,6 +35,11 @@ export default async function BookPage({ params }: BookPageParams) {
   }
   if (!hasThumbnail(book.cover)) {
     console.log('Bildet eksisterer ikke', book.title)
+    return null
+  }
+
+  if (!hasAuthor(book.author)) {
+    console.log('Forfatter eksisterer ikke', book.title)
     return null
   }
 
