@@ -4,7 +4,7 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import Image from 'next/image'
 import Link from 'next/link'
-import { hasAuthor, hasThumbnail } from '@/utils/typeGuards'
+import { hasAuthor, hasThumbnail, hasGenre } from '@/utils/typeGuards'
 
 type BookPageParams = {
   params: Promise<{ bookSlug: string }>
@@ -43,20 +43,25 @@ export default async function BookPage({ params }: BookPageParams) {
     return null
   }
 
+  if (!hasGenre(book.genre)) {
+    console.log('Sjanger eksisterer ikke', book.title)
+    return null
+  }
+
+  const { url, width, height } = book.cover.sizes.thumbnail
+  const { alt } = book.cover
+  const { name: authorName } = book.author
+  const { name: genreName } = book.genre
+
   return (
     <main>
-      {/* Her må det legges på typeguard */}
-      <Image
-        src={book.cover.sizes.thumbnail.url}
-        width={book.cover.sizes.thumbnail.width}
-        height={book.cover.sizes.thumbnail.height}
-        alt={book.cover.alt}
-      ></Image>
+      <Image src={url} width={width} height={height} alt={alt}></Image>
       <h1>{book.title}</h1>
-      <h2>{book.author.name}</h2>
+      <h2>{authorName}</h2>
       <p>{book.description}</p>
       <p>Aldersgruppe: {book.ages}</p>
       <p>På lager: {book.stock}</p>
+      <p>Tilhører sjanger: {genreName}</p>
     </main>
   )
 }

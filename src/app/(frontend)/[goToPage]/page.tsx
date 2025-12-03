@@ -44,16 +44,24 @@ export default async function BooksPage({ params }: BooksPageProps) {
             return null
           }
 
+          const { url, width, height } = book.cover.sizes.thumbnail
+          const { alt } = book.cover
+          const { name: authorName } = book.author
+          const { name: genreName } = book.genre
+
           return (
             <div key={book.id}>
               <Link href={`${goToPage}/bok/${book.slug}`} key={book.id}>
                 <BookCard
                   title={book.title}
-                  alt={book.cover.alt}
-                  cover={book.cover.sizes.thumbnail.url}
-                  author={book.author.name}
-                  genre={book.genre.name}
+                  coverUrl={url}
+                  coverAlt={alt}
+                  coverWidth={width}
+                  coverHeight={height}
+                  author={authorName}
+                  genre={genreName}
                   stock={book.stock}
+                  age={book.ages}
                 ></BookCard>
               </Link>
               <Button
