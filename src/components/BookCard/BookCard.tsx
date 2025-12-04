@@ -2,7 +2,7 @@
 
 import styles from '.BookCard.module.css'
 import Image from 'next/image'
-import Button from '../Button/Button'
+import AddToCartButton from '../AddToCartButton/AddToCartButton'
 import Link from 'next/link'
 import { useCartStore } from '@/store/cartStore'
 
@@ -40,6 +40,7 @@ export default function BookCard({
     id,
     title,
     price,
+    stock,
   }
   return (
     <>
@@ -52,13 +53,7 @@ export default function BookCard({
         <p>På lager: {stock}</p>
         <p>Anbefalt for: {age}</p>
       </Link>
-      <Button
-        onClick={() => addToCart(book)}
-        type="button"
-        disabled={stock <= 0}
-        variant={stock <= 0 ? 'disabled' : 'primary'}
-        text={stock <= 0 ? 'Ikke på lager' : 'Legg i handlekurv'}
-      ></Button>
+      <AddToCartButton book={book}></AddToCartButton>
     </>
   )
 }

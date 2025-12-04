@@ -1,4 +1,6 @@
-import type { BookInCart } from '@/store/cartStore'
+import type { BookInCart } from '@/types/cart'
+import DecreaseButton from '../DecreaseButton/DecreaseButton'
+import IncreaseButton from '../IncreaseButton/IncreaseButton'
 
 export default function CartItem({ id, title, quantity, price }: BookInCart) {
   return (
@@ -6,6 +8,10 @@ export default function CartItem({ id, title, quantity, price }: BookInCart) {
       <p>{title}</p>
       <p>Antall: {quantity}</p>
       <p>Sum: {price * quantity} kr</p>
+      <div>
+        <DecreaseButton id={id}></DecreaseButton>
+        <IncreaseButton id={id}></IncreaseButton>
+      </div>
       <hr />
     </div>
   )
