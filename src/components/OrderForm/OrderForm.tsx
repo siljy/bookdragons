@@ -1,11 +1,18 @@
 import { useState } from 'react'
+import { useRouter } from 'next/navigation'
 import Button from '../Button/Button'
+import ErrorMessage from '../ErrorMessage/ErrorMessage'
 import { useCartStore } from '@/store/cartStore'
 
 export default function OrderForm() {
   const [customerName, setCustomerName] = useState('')
   const [customerEmail, setCustomerEmail] = useState('')
+  const [orderError, setOrderError] = useState(false)
+
   const cart = useCartStore((state) => state.cart)
+
+  const router = useRouter()
+
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()
 
@@ -29,9 +36,11 @@ export default function OrderForm() {
 
       if (response.ok) {
         console.log('Ordre opprettet')
+        router.push('/bekreftelse')
       }
     } catch (error) {
       console.error('Klarte ikke opprette ordre')
+      setOrderError(true)
     }
   }
   return (
@@ -58,6 +67,7 @@ export default function OrderForm() {
         }}
       />
       <Button type="submit" variant="primary" text="Send inn bestilling" disabled={false}></Button>
+      <ErrorMessage message="Noe gikk galt, prøv på nytt senere!"></ErrorMessage>
     </form>
   )
 }
