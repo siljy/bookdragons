@@ -12,6 +12,7 @@ type CartState = {
   increaseCart: (id: BookInCart['id']) => void
   decreaseCart: (id: BookInCart['id']) => void
   removeFromCart(id: BookInCart['id']): void
+  //Legge til en clearCart-funksjon
 }
 
 export const useCartStore = create<CartState>()(
