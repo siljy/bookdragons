@@ -24,6 +24,7 @@ export default function Cart() {
           title={item.title}
           price={item.price}
           quantity={item.quantity}
+          stock={item.stock}
         ></CartItem>
       ))}
       <h3>Sum: {total} kr</h3>

@@ -7,4 +7,5 @@ export type BookInCart = {
   title: string
   price: number
   quantity: number
+  stock: number
 }

@@ -30,13 +30,18 @@ export const useCartStore = create<CartState>()(
         let updatedCart
 
         if (existingBook) {
+          //Stopper brukeren fra å legge til flere bøker enn det er på lager
+          if (existingBook.quantity >= book.stock) {
+            alert('Det er ikke flere av denne på lager')
+            return
+          }
           //Hvis boka er i handlekurven, øk antall
           updatedCart = cart.map((item) =>
             item.id === book.id ? { ...item, quantity: item.quantity + 1 } : item,
           )
         } else {
           //Hvis ikke legges den til med 1 i quantity
-          updatedCart = [...cart, { ...book, quantity: 1 }]
+          updatedCart = [...cart, { ...book, quantity: 1, stock: book.stock }]
         }
         //Cart blir den oppdaterte handlekurven
         set({ cart: updatedCart })
@@ -49,11 +54,16 @@ export const useCartStore = create<CartState>()(
 
         let updatedCart
 
-        if (existingBook) {
-          updatedCart = cart.map((item) =>
-            item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
-          )
+        if (!existingBook) return
+
+        if (existingBook.quantity >= existingBook.stock) {
+          alert('Det er ikke flere av denne på lager')
+          return
         }
+        updatedCart = cart.map((item) =>
+          item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
+        )
+
         set({ cart: updatedCart })
       },
 
