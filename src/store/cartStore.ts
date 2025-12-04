@@ -1,4 +1,5 @@
 //Lagrer det kunden legger til i handlekurv i zustand
+//Samt funksjoner for å legge til, øke, minke og fjerne fra handlekurv
 
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
@@ -10,6 +11,7 @@ type CartState = {
   addToCart: (book: Omit<BookInCart, 'quantity'>) => void
   increaseCart: (id: BookInCart['id']) => void
   decreaseCart: (id: BookInCart['id']) => void
+  removeFromCart(id: BookInCart['id']): void
 }
 
 export const useCartStore = create<CartState>()(
@@ -72,6 +74,13 @@ export const useCartStore = create<CartState>()(
         updatedCart = cart.map((item) =>
           item.id === id ? { ...item, quantity: item.quantity - 1 } : item,
         )
+        set({ cart: updatedCart })
+      },
+
+      removeFromCart: (id) => {
+        const cart = get().cart
+
+        let updatedCart = cart.filter((item) => item.id !== id)
         set({ cart: updatedCart })
       },
     }),
