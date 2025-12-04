@@ -4,7 +4,6 @@ import styles from '.BookCard.module.css'
 import Image from 'next/image'
 import AddToCartButton from '../AddToCartButton/AddToCartButton'
 import Link from 'next/link'
-import { useCartStore } from '@/store/cartStore'
 
 type BookCardProps = {
   bookUrl: string
@@ -35,7 +34,7 @@ export default function BookCard({
   stock,
   age,
 }: BookCardProps) {
-  const addToCart = useCartStore((state) => state.addToCart)
+
   const book = {
     id,
     title,

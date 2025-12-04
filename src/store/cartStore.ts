@@ -24,15 +24,15 @@ export const useCartStore = create<CartState>()(
       addToCart: (book) => {
         const cart = get().cart
 
-        //Sjekker om boken allerede er i handlekurven med å finne den via index og sammenligne id:
-        const index = cart.findIndex((item) => item.id === book.id)
+        //Finner bok som har samme id som det som ligger i handlekurv
+        const existingBook = cart.find((item) => item.id === book.id)
 
         let updatedCart
 
-        if (index > -1) {
-          //Hvis boken allerede eksisterer øker quantity med 1, hvis ikke returnerer den bare samme bok
-          updatedCart = cart.map((item, i) =>
-            i === index ? { ...item, quantity: item.quantity + 1 } : item,
+        if (existingBook) {
+          //Hvis boka er i handlekurven, øk antall
+          updatedCart = cart.map((item) =>
+            item.id === book.id ? { ...item, quantity: item.quantity + 1 } : item,
           )
         } else {
           //Hvis ikke legges den til med 1 i quantity
@@ -45,12 +45,10 @@ export const useCartStore = create<CartState>()(
       increaseCart: (id) => {
         const cart = get().cart
 
-        //Finner boka med å sammenligne id som kommer inn med det som ligger i cart
         const existingBook = cart.find((item) => item.id === id)
 
         let updatedCart
 
-        //Hvis boka eksisterer og id samsvarer, oppdateres quantity
         if (existingBook) {
           updatedCart = cart.map((item) =>
             item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
@@ -67,7 +65,7 @@ export const useCartStore = create<CartState>()(
 
         //Varsler bruker om antall er 1
         if (existingBook && existingBook.quantity === 1) {
-          alert('Kan ikke fjerne flere av denne varen')
+          alert('Kan ikke fjerne flere av denne boka')
           return
         }
 
