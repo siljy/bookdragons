@@ -4,18 +4,10 @@ import Link from 'next/link'
 import BookCard from '@/components/BookCard/BookCard'
 import { hasThumbnail, hasAuthor, hasGenre } from '@/utils/typeGuards'
 
-type BooksPageProps = {
-  params: Promise<{ goToPage: string }>
-}
-
-export default async function BooksPage({ params }: BooksPageProps) {
-  const { goToPage } = await params
-  const page = Number(goToPage || 1)
-
+export default async function BooksPage() {
   const payload = await getPayload({ config })
   const queryResult = await payload.find({
     collection: 'books',
-    page,
     limit: 9,
     depth: 2,
   })
@@ -48,7 +40,7 @@ export default async function BooksPage({ params }: BooksPageProps) {
         return (
           <div key={book.id}>
             <BookCard
-              bookUrl={`${goToPage}/bok/${book.slug}`}
+              bookUrl={`/bok/${book.slug}`}
               id={book.id}
               key={book.id}
               title={book.title}

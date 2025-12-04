@@ -4,6 +4,7 @@ import { useCartStore } from '@/store/cartStore'
 import CartItem from '../CartItem/CartItem'
 import styles from './Cart.module.css'
 import Button from '../Button/Button'
+import Link from 'next/link'
 
 export default function Cart() {
   const cart = useCartStore((state) => state.cart)
@@ -29,7 +30,9 @@ export default function Cart() {
       ))}
       <h3>Sum: {total} kr</h3>
       {/* Legg til onClick her for å gå videre til bestillingsskjema */}
-      <Button type="button" variant="primary" text="Bestill" disabled={false}></Button>
+      <Link href="/bestilling">
+        <Button type="button" variant="primary" text="Bestill" disabled={false}></Button>
+      </Link>
     </section>
   )
 }
