@@ -67,7 +67,7 @@ export default function OrderForm() {
         }}
       />
       <Button type="submit" variant="primary" text="Send inn bestilling" disabled={false}></Button>
-      <ErrorMessage message="Noe gikk galt, prøv på nytt senere!"></ErrorMessage>
+      {orderError && <ErrorMessage message="Noe gikk galt, prøv på nytt senere!"></ErrorMessage>}
     </form>
   )
 }
