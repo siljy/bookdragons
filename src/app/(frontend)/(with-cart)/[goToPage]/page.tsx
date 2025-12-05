@@ -26,10 +26,12 @@ export default async function BooksPage({
 
   const queryResultsAuthors = await payload.find({
     collection: 'authors',
+    sort: 'name',
   })
 
   const queryResultsGenres = await payload.find({
     collection: 'genres',
+    sort: 'name',
   })
 
   const { docs: books, totalPages } = queryResultBooks
@@ -45,6 +47,15 @@ export default async function BooksPage({
     id: genre.slug,
     name: genre.name,
   }))
+
+  if (books.length === 0) {
+    return (
+      <section>
+        <FilterSection authors={authorsOptions} genres={genresOptions}></FilterSection>
+        <p>Vi har ingen bøker som matcher filteret ditt, dessverre</p>
+      </section>
+    )
+  }
 
   return (
     <section>
