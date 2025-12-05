@@ -44,6 +44,15 @@ export default async function BooksPage({
     name: genre.name,
   }))
 
+  if (books.length === 0) {
+    return (
+      <section>
+        <FilterSection authors={authorsOptions} genres={genresOptions}></FilterSection>
+        <p>Vi har ingen bøker som matcher filteret ditt, dessverre</p>
+      </section>
+    )
+  }
+
   return (
     <section>
       <FilterSection authors={authorsOptions} genres={genresOptions}></FilterSection>
