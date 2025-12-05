@@ -9,14 +9,16 @@ import { FilterOption } from '@/types/filter'
 export default async function BooksPage({
   searchParams,
 }: {
-  searchParams: { [key: string]: string | undefined }
+  searchParams: Promise<{ [key: string]: string | undefined }>
 }) {
+  const params = await searchParams
+
   const payload = await getPayload({ config })
   const queryResultBooks = await payload.find({
     collection: 'books',
     where: {
-      ...(searchParams.author && { 'author.slug': { equals: searchParams.author } }),
-      ...(searchParams.genre && { 'genre.slug': { equals: searchParams.genre } }),
+      ...(params.author && { 'author.slug': { equals: params.author } }),
+      ...(params.genre && { 'genre.slug': { equals: params.genre } }),
     },
     limit: 9,
     depth: 2,
