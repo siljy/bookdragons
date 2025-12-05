@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 type BookProps = {
   id: number
   title: string
@@ -7,7 +9,7 @@ type BookProps = {
 type PresentationArticleProps = {
   name: string
   presentation: string
-  books: BookProps[] 
+  books: BookProps[]
 }
 
 export default function PresentationArticle({
@@ -19,7 +21,7 @@ export default function PresentationArticle({
     <>
       <h1>{name}</h1>
       <p>{presentation}</p>
-      <h2>Bøker av {name}</h2>
+      <h2>Bøker:</h2>
       <ul>
         {books.map((book) => (
           <li key={book.id}>{book.title}</li>

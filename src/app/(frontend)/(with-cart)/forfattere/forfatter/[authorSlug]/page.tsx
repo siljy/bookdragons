@@ -3,6 +3,7 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import PresentationArticle from '@/components/PresentationArticle/PresentationArticle'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage'
+import Link from 'next/link'
 
 type AuthorPageParams = {
   params: Promise<{ authorSlug: string }>
@@ -40,6 +41,9 @@ export default async function AuthorPage({ params }: AuthorPageParams) {
 
   return (
     <main>
+       <nav>
+        <Link href="/forfattere">Se alle forfattere</Link>
+      </nav>
       <PresentationArticle
         name={author.name}
         presentation={author.presentation}

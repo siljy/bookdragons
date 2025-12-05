@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles.css'
+import NavBar from '@/components/NavBar/NavBar'
 
 export const metadata = {
   description: 'A blank template using Payload in a Next.js app.',
@@ -13,7 +14,9 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
     <html lang="en">
       <body>
         <main>
-          <h1>BookDragons</h1>
+          <header>
+            <NavBar></NavBar>
+          </header>
           {children}
         </main>
       </body>

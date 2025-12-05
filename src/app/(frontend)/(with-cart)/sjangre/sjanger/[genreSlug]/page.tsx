@@ -3,6 +3,7 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import PresentationArticle from '@/components/PresentationArticle/PresentationArticle'
 import ErrorMessage from '@/components/ErrorMessage/ErrorMessage'
+import Link from 'next/link'
 
 type GenrePageParams = {
   params: Promise<{ genreSlug: string }>
@@ -40,6 +41,9 @@ export default async function GenrePage({ params }: GenrePageParams) {
 
   return (
     <main>
+      <nav>
+        <Link href="/sjangre">Se alle sjangre</Link>
+      </nav>
       <PresentationArticle
         name={genre.name}
         presentation={genre.presentation}

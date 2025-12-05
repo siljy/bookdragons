@@ -4,9 +4,7 @@ import './styles.css'
 export default function LayoutWithCart({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <header>
-        <Cart></Cart>
-      </header>
+      <Cart></Cart>
       {children}
     </>
   )

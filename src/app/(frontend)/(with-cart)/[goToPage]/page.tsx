@@ -36,20 +36,12 @@ export default async function BooksPage({
     sort: 'name',
   })
 
-  const authorsWithBooks = queryResultsAuthors.docs.filter((author) =>
-    books.some((book) => hasAuthor(book.author) && book.author.id === author.id),
-  )
-
-  const genresWithBooks = queryResultsGenres.docs.filter((genre) =>
-    books.some((book) => hasGenre(book.genre) && book.genre.id === genre.id),
-  )
-
-  const authorsOptions: FilterOption[] = authorsWithBooks.map((author) => ({
+  const authorsOptions: FilterOption[] = queryResultsAuthors.docs.map((author) => ({
     id: author.slug,
     name: author.name,
   }))
 
-  const genresOptions: FilterOption[] = genresWithBooks.map((genre) => ({
+  const genresOptions: FilterOption[] = queryResultsGenres.docs.map((genre) => ({
     id: genre.slug,
     name: genre.name,
   }))
