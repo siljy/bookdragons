@@ -1,13 +1,15 @@
-import styles from "./ErrorMessage.module.css"
+import styles from './ErrorMessage.module.css'
+import Link from 'next/link'
 
 type ErrorMessageProps = {
-    message: string
+  message: string
 }
 
-export default function ErrorMessage({message}: ErrorMessageProps){
-return (
+export default function ErrorMessage({ message }: ErrorMessageProps) {
+  return (
     <div className={styles.errorMessage}>
-        {message}
+      {message}
+      <Link href={'/1'}>Gå tilbake til alle bøker</Link>
     </div>
-)
+  )
 }

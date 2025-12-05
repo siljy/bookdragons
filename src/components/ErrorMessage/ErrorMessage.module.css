@@ -1,3 +1,6 @@
 .errorMessage {
+  /* Style slik at den er midt på? */
   color: var(--error);
+  display: flex;
+  flex-direction: column;
 }

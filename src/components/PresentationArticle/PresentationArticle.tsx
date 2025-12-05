@@ -1,6 +1,6 @@
 type BookProps = {
   id: number
-  name: string
+  title: string
   //Legge til bilde? etterhvert
 }
 
@@ -22,7 +22,7 @@ export default function PresentationArticle({
       <h2>Bøker av {name}</h2>
       <ul>
         {books.map((book) => (
-          <li key={book.id}>{book.name}</li>
+          <li key={book.id}>{book.title}</li>
         ))}
       </ul>
     </>

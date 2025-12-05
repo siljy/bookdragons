@@ -2,6 +2,7 @@
 import { getPayload } from 'payload'
 import config from '@payload-config'
 import PresentationArticle from '@/components/PresentationArticle/PresentationArticle'
+import ErrorMessage from '@/components/ErrorMessage/ErrorMessage'
 
 type AuthorPageParams = {
   params: Promise<{ authorSlug: string }>
@@ -11,7 +12,7 @@ export default async function AuthorPage({ params }: AuthorPageParams) {
   const { authorSlug } = await params
   const payload = await getPayload({ config })
 
-  const queryResults = await payload.find({
+  const queryResultsAuthors = await payload.find({
     collection: 'authors',
     where: {
       slug: {
@@ -20,23 +21,29 @@ export default async function AuthorPage({ params }: AuthorPageParams) {
     },
   })
 
-  const author = queryResults.docs[0]
+  const author = queryResultsAuthors.docs[0]
 
   if (!author) {
-    return (
-      <div>
-        Denne forfatteren finnes ikke
-        {/* <Link href={'/1'}>Gå tilbake til alle bøker</Link> */}
-      </div>
-    )
+    return <ErrorMessage message="Denne forfatteren finnes ikke"></ErrorMessage>
   }
+
+  const queryResultBooks = await payload.find({
+    collection: 'books',
+    where: {
+      author: {
+        equals: author.id,
+      },
+    },
+  })
+
+  const books = queryResultBooks.docs
 
   return (
     <main>
       <PresentationArticle
         name={author.name}
         presentation={author.presentation}
-        books={[]}
+        books={books}
       ></PresentationArticle>
     </main>
   )
