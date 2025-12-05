@@ -176,6 +176,7 @@ export interface Media {
 export interface Author {
   id: number;
   name: string;
+  slug: string;
   /**
    * Kort tekst om forfatteren
    */
@@ -190,6 +191,7 @@ export interface Author {
 export interface Genre {
   id: number;
   name: string;
+  slug: string;
   /**
    * Kort tekst om sjangeren
    */
@@ -433,6 +435,7 @@ export interface MediaSelect<T extends boolean = true> {
  */
 export interface AuthorsSelect<T extends boolean = true> {
   name?: T;
+  slug?: T;
   presentation?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -443,6 +446,7 @@ export interface AuthorsSelect<T extends boolean = true> {
  */
 export interface GenresSelect<T extends boolean = true> {
   name?: T;
+  slug?: T;
   presentation?: T;
   updatedAt?: T;
   createdAt?: T;

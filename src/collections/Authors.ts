@@ -19,6 +19,13 @@ export const Authors: CollectionConfig = {
       type: 'text',
       required: true,
     },
+      {
+      name: 'slug',
+      label: 'URL',
+      type: 'text',
+      unique: true,
+      required: true,
+    },
     {
       name: 'presentation',
       label: 'Presentasjon',

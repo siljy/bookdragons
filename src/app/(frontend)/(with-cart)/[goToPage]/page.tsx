@@ -4,6 +4,7 @@ import Link from 'next/link'
 import BookCard from '@/components/BookCard/BookCard'
 import { hasThumbnail, hasAuthor, hasGenre } from '@/utils/typeGuards'
 import FilterSection from '@/components/FilterSection/FilterSection'
+import { FilterOption } from '@/types/filter'
 
 export default async function BooksPage({
   searchParams,
@@ -14,8 +15,8 @@ export default async function BooksPage({
   const queryResultBooks = await payload.find({
     collection: 'books',
     where: {
-      ...(searchParams.genre && { genre: { equals: searchParams.genre } }),
-      ...(searchParams.author && { author: { equals: searchParams.author } }),
+      ...(searchParams.author && { 'author.slug': { equals: searchParams.author } }),
+      ...(searchParams.genre && { 'genre.slug': { equals: searchParams.genre } }),
     },
     limit: 9,
     depth: 2,
@@ -33,9 +34,19 @@ export default async function BooksPage({
   const authors = queryResultsAuthors.docs
   const genres = queryResultsGenres.docs
 
+  const authorsOptions: FilterOption[] = authors.map((author) => ({
+    id: author.slug,
+    name: author.name,
+  }))
+
+  const genresOptions: FilterOption[] = genres.map((genre) => ({
+    id: genre.slug,
+    name: genre.name,
+  }))
+
   return (
     <section>
-      <FilterSection authors={authors} genres={genres}></FilterSection>
+      <FilterSection authors={authorsOptions} genres={genresOptions}></FilterSection>
 
       {books.map((book) => {
         if (!hasThumbnail(book.cover)) {

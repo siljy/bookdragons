@@ -1,5 +1,5 @@
 export type FilterOption = {
-  id: number
+  id: string
   name: string
   presentation?: string
 }

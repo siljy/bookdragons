@@ -20,6 +20,13 @@ export const Genres: CollectionConfig = {
       required: true,
     },
     {
+      name: 'slug',
+      label: 'URL',
+      type: 'text',
+      unique: true,
+      required: true,
+    },
+    {
       name: 'presentation',
       label: 'Presentasjon',
       admin: {
