@@ -13,8 +13,8 @@ export default function OrderForm() {
 
   const router = useRouter()
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
-    e.preventDefault()
+  async function handleSubmit(evt: React.FormEvent<HTMLFormElement>) {
+    evt.preventDefault()
 
     const orderData = {
       customer: {
@@ -52,8 +52,8 @@ export default function OrderForm() {
         name="name"
         value={customerName}
         required
-        onChange={(e) => {
-          setCustomerName(e.currentTarget.value)
+        onChange={(evt) => {
+          setCustomerName(evt.currentTarget.value)
         }}
       />
       <label htmlFor="email">E-post</label>
@@ -62,8 +62,8 @@ export default function OrderForm() {
         name="email"
         value={customerEmail}
         required
-        onChange={(e) => {
-          setCustomerEmail(e.currentTarget.value)
+        onChange={(evt) => {
+          setCustomerEmail(evt.currentTarget.value)
         }}
       />
       <Button type="submit" variant="primary" text="Send inn bestilling" disabled={false}></Button>
