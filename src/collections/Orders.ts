@@ -6,6 +6,10 @@ export const Orders: CollectionConfig = {
     read: () => true,
     create: () => true,
   },
+  labels: {
+    singular: 'Bestilling',
+    plural: 'Bestillinger',
+  },
   fields: [
     {
       name: 'items',

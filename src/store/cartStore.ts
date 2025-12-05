@@ -12,12 +12,12 @@ type CartState = {
   increaseCart: (id: BookInCart['id']) => void
   decreaseCart: (id: BookInCart['id']) => void
   removeFromCart(id: BookInCart['id']): void
-  //Legge til en clearCart-funksjon
+  clearCart: () => void
 }
 
 export const useCartStore = create<CartState>()(
   persist(
-    (set, get) => ({
+    (set, get, store) => ({
       //Handlekurven
       cart: [],
 
@@ -91,6 +91,10 @@ export const useCartStore = create<CartState>()(
 
         let updatedCart = cart.filter((item) => item.id !== id)
         set({ cart: updatedCart })
+      },
+
+      clearCart: () => {
+        set(store.getInitialState())
       },
     }),
     {

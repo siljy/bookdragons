@@ -10,6 +10,7 @@ export default function OrderForm() {
   const [orderError, setOrderError] = useState(false)
 
   const cart = useCartStore((state) => state.cart)
+  const clearCart = useCartStore((state) => state.clearCart)
 
   const router = useRouter()
 
@@ -37,6 +38,7 @@ export default function OrderForm() {
       if (response.ok) {
         console.log('Ordre opprettet')
         router.push('/bekreftelse')
+        clearCart()
       }
     } catch (error) {
       console.error('Klarte ikke opprette ordre')
