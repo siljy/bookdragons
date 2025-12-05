@@ -33,6 +33,7 @@ export default async function BookPage({ params }: BookPageParams) {
       </div>
     )
   }
+  
   if (!hasThumbnail(book.cover)) {
     console.log('Bildet eksisterer ikke', book.title)
     return null
