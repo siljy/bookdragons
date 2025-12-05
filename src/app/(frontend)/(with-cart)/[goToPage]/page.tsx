@@ -24,6 +24,8 @@ export default async function BooksPage({
     depth: 2,
   })
 
+  const { docs: books, totalPages } = queryResultBooks
+
   const queryResultsAuthors = await payload.find({
     collection: 'authors',
     sort: 'name',
@@ -34,28 +36,23 @@ export default async function BooksPage({
     sort: 'name',
   })
 
-  const { docs: books, totalPages } = queryResultBooks
-  const authors = queryResultsAuthors.docs
-  const genres = queryResultsGenres.docs
+  const authorsWithBooks = queryResultsAuthors.docs.filter((author) =>
+    books.some((book) => hasAuthor(book.author) && book.author.id === author.id),
+  )
 
-  const authorsOptions: FilterOption[] = authors.map((author) => ({
+  const genresWithBooks = queryResultsGenres.docs.filter((genre) =>
+    books.some((book) => hasGenre(book.genre) && book.genre.id === genre.id),
+  )
+
+  const authorsOptions: FilterOption[] = authorsWithBooks.map((author) => ({
     id: author.slug,
     name: author.name,
   }))
 
-  const genresOptions: FilterOption[] = genres.map((genre) => ({
+  const genresOptions: FilterOption[] = genresWithBooks.map((genre) => ({
     id: genre.slug,
     name: genre.name,
   }))
-
-  if (books.length === 0) {
-    return (
-      <section>
-        <FilterSection authors={authorsOptions} genres={genresOptions}></FilterSection>
-        <p>Vi har ingen bøker som matcher filteret ditt, dessverre</p>
-      </section>
-    )
-  }
 
   return (
     <section>
