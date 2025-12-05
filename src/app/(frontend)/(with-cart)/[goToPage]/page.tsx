@@ -24,10 +24,12 @@ export default async function BooksPage({
 
   const queryResultsAuthors = await payload.find({
     collection: 'authors',
+    sort: 'name',
   })
 
   const queryResultsGenres = await payload.find({
     collection: 'genres',
+    sort: 'name',
   })
 
   const { docs: books, totalPages } = queryResultBooks
