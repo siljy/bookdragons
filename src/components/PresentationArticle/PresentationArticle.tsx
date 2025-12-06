@@ -1,6 +1,7 @@
+import styles from './PresentationArticle.module.css'
 import MinimalBookCard from '../MinimalBookCard/MinimalBookCard'
 import type { Book } from '@/payload-types'
-import { hasThumbnail } from '@/utils/typeGuards'
+import { hasAuthor, hasThumbnail } from '@/utils/typeGuards'
 
 type PresentationArticleProps = {
   name: string
@@ -18,23 +19,27 @@ export default function PresentationArticle({
       <h1>{name}</h1>
       <p>{presentation}</p>
       <h2>Bøker:</h2>
-      <section>
+      <section className={styles.bookSection}>
         {books.map((book) => {
-          if(!hasThumbnail(book.cover)){
-            console.log("Boken har ikke et bilde")
+          if (!hasThumbnail(book.cover)) {
+            console.log('Boken har ikke et bilde')
             return null
           }
 
+          if (!hasAuthor(book.author)) {
+            console.log('Boken har ingen forfatter')
+            return null
+          }
 
-        const { url, width, height } = book.cover.sizes.thumbnail
-        const { alt } = book.cover
+          const { url, width, height } = book.cover.sizes.thumbnail
+          const { alt } = book.cover
 
           return (
             <MinimalBookCard
               key={book.id}
               id={book.id}
               title={book.title}
-              author={name}
+              author={book.author.name}
               slug={book.slug}
               coverUrl={url}
               coverAlt={alt}
