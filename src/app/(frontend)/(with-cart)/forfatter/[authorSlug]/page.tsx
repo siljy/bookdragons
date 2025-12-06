@@ -42,7 +42,7 @@ export default async function AuthorPage({ params }: AuthorPageParams) {
 
 
   return (
-    <main>
+    <section>
       <nav>
         <Link href="/forfatter">Se alle forfattere</Link>
       </nav>
@@ -51,6 +51,6 @@ export default async function AuthorPage({ params }: AuthorPageParams) {
         presentation={author.presentation}
         books={books}
       ></PresentationArticle>
-    </main>
+    </section>
   )
 }

@@ -40,7 +40,7 @@ export default async function GenrePage({ params }: GenrePageParams) {
   const books = queryResultBooks.docs
 
   return (
-    <main>
+    <section>
       <nav>
         <Link href="/sjanger">Se alle sjangre</Link>
       </nav>
@@ -49,6 +49,6 @@ export default async function GenrePage({ params }: GenrePageParams) {
         presentation={genre.presentation}
         books={books}
       ></PresentationArticle>
-    </main>
+    </section>
   )
 }

@@ -11,7 +11,7 @@ export default async function AuthorsPage() {
   const authors = queryResult.docs
 
   return (
-    <main>
+    <section>
       <h1>Forfattere</h1>
       <ul>
         {authors.map((author) => (
@@ -20,6 +20,6 @@ export default async function AuthorsPage() {
           </li>
         ))}
       </ul>
-    </main>
+    </section>
   )
 }

@@ -19,7 +19,6 @@ export default async function BooksPage({
       ...(params.author && { 'author.slug': { equals: params.author } }),
       ...(params.genre && { 'genre.slug': { equals: params.genre } }),
     },
-    limit: 2,
     depth: 2,
   })
 

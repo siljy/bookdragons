@@ -55,7 +55,7 @@ export default async function BookPage({ params }: BookPageParams) {
   const { name: genreName } = book.genre
 
   return (
-    <main>
+    <section>
       <Image src={url} width={width} height={height} alt={alt}></Image>
       <h1>{book.title}</h1>
       <h2>{authorName}</h2>
@@ -64,6 +64,6 @@ export default async function BookPage({ params }: BookPageParams) {
       <p>På lager: {book.stock}</p>
       <p>Tilhører sjanger: {genreName}</p>
       <AddToCartButton book={book}></AddToCartButton>
-    </main>
+    </section>
   )
 }

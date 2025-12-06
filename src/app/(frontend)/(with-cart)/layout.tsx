@@ -1,7 +1,7 @@
+import React from 'react'
 import Cart from '@/components/Cart/Cart'
-import './styles.css'
 
-export default function LayoutWithCart({ children }: { children: React.ReactNode }) {
+export default async function LayoutWithoutCart({ children }: { children: React.ReactNode }) {
   return (
     <>
       <Cart></Cart>

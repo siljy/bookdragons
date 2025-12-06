@@ -11,7 +11,7 @@ export default async function GenresPage() {
   const genres = queryResult.docs
 
   return (
-    <main>
+    <section>
       <h1>Sjangre</h1>
       <ul>
         {genres.map((genre) => (
@@ -20,6 +20,6 @@ export default async function GenresPage() {
           </li>
         ))}
       </ul>
-    </main>
+    </section>
   )
 }

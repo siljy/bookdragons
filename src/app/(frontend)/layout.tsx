@@ -1,10 +1,11 @@
 import React from 'react'
 import './styles.css'
 import NavBar from '@/components/NavBar/NavBar'
+import Cart from '@/components/Cart/Cart'
 
 export const metadata = {
-  description: 'A blank template using Payload in a Next.js app.',
-  title: 'Payload Blank Template',
+  description: 'BookDragons nettbutikk',
+  title: 'BookDragons: Brukte bøker av høy kvalitet til rimelig pris',
 }
 
 export default async function RootLayout(props: { children: React.ReactNode }) {
@@ -13,12 +14,11 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>
+        <header>
+          <NavBar></NavBar>
+        </header>
         <main>
-          <header>
-            <NavBar></NavBar>
-          </header>
-          {children}
-        </main>
+          {children}</main>
       </body>
     </html>
   )

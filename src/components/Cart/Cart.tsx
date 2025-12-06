@@ -11,16 +11,12 @@ export default function Cart() {
 
   let total = 0
 
-  // if (cart.length === 0) {
-  //   return <p>Handlekurven er tom</p>
-  // }
-
   cart.forEach((item) => {
     total += item.price * item.quantity
   })
 
   return (
-    <section className={styles.cart}>
+    <aside className={styles.cart}>
       <h2>Handlekurv</h2>
 
       {cart.length === 0 ? (
@@ -43,6 +39,6 @@ export default function Cart() {
           </Link>
         </div>
       )}
-    </section>
+    </aside>
   )
 }
