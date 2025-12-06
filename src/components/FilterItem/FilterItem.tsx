@@ -1,5 +1,6 @@
 'use client'
 
+import styles from "./FilterItem.module.css"
 import { FilterOption } from '@/types/filter'
 
 type FilterItemProps = {
@@ -12,7 +13,7 @@ type FilterItemProps = {
 
 export default function FilterItem({ title, value, name, options, onChange }: FilterItemProps) {
   return (
-    <>
+    <div className={styles.filterItem}>
       <label htmlFor={name}>{title}</label>
       <select name={name} id={name} value={value} onChange={onChange}>
         <option value="all">Vis alle</option>
@@ -22,6 +23,6 @@ export default function FilterItem({ title, value, name, options, onChange }: Fi
           </option>
         ))}
       </select>
-    </>
+    </div>
   )
 }
