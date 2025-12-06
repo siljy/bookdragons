@@ -44,7 +44,7 @@ export default async function AuthorPage({ params }: AuthorPageParams) {
   return (
     <main>
       <nav>
-        <Link href="/forfattere">Se alle forfattere</Link>
+        <Link href="/forfatter">Se alle forfattere</Link>
       </nav>
       <PresentationArticle
         name={author.name}

@@ -4,8 +4,8 @@ export default function NavBar() {
   return (
     <nav>
       <Link href="/">Alle bøker</Link>
-      <Link href="/forfattere">Forfattere</Link>
-      <Link href="/sjangre">Sjangre</Link>
+      <Link href="/forfatter">Forfattere</Link>
+      <Link href="/sjanger">Sjangre</Link>
     </nav>
   )
 }
