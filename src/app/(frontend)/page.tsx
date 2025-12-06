@@ -1,11 +1,5 @@
-// import { redirect } from 'next/navigation'
-
-// export default function BooksRootPage() {
-//   redirect('1')
-// }
 import config from '@/payload.config'
 import { getPayload } from 'payload'
-import Link from 'next/link'
 import BookCard from '@/components/BookCard/BookCard'
 import { hasThumbnail, hasAuthor, hasGenre } from '@/utils/typeGuards'
 import FilterSection from '@/components/FilterSection/FilterSection'
@@ -29,7 +23,7 @@ export default async function BooksPage({
     depth: 2,
   })
 
-  const { docs: books, totalPages } = queryResultBooks
+  const { docs: books } = queryResultBooks
 
   const queryResultsAuthors = await payload.find({
     collection: 'authors',

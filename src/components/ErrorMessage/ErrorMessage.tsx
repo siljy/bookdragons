@@ -9,7 +9,7 @@ export default function ErrorMessage({ message }: ErrorMessageProps) {
   return (
     <div className={styles.errorMessage}>
       {message}
-      <Link href={'/1'}>Gå tilbake til alle bøker</Link>
+      <Link href={'/'}>Gå tilbake til alle bøker</Link>
     </div>
   )
 }
