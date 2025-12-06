@@ -3,14 +3,14 @@
 
   --primary: #480c31;
   --secondary: #694f11;
-  --background: #0b0a0a;
+  --background: #0c0c0c;
   --disabled: #cbcaca;
   --error: #cd353b;
 
   --primary-1: #916981;
   --primary-2: #6c3a59;
   --primary-3: #3a0a27;
-  --primary-4: #2b071d;
+  --primary-4: #1e0514;
 
   --secondary-1: #ad9d6d;
   --secondary-2: #8b763f;
@@ -42,11 +42,6 @@ body,
 }
 
 body {
-  /* display: grid;
-  grid-template-columns: 1fr 400px;
-  grid-template-rows: auto 1fr;
-  min-height: 100vh; */
-
   font-family: system-ui;
   font-size: 18px;
   line-height: 32px;
@@ -60,10 +55,37 @@ body {
   }
 }
 
-/* main {
-  grid-column: 1;
-  grid-row: 2;
-} */
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 2rem;
+  width: 100%;
+  max-width: 90rem;
+  margin-inline: auto;
+
+  @media (min-width: 1024px) {
+    grid-template-columns: 1fr 20rem;
+  }
+
+  > section {
+    grid-column: 1;
+    grid-row: 2;
+
+    @media (min-width: 1024px) {
+      grid-row: 1;
+    }
+  }
+
+  > aside {
+    grid-column: 1;
+    grid-row: 1;
+
+    @media (min-width: 1024px) {
+      grid-column: 2;
+    }
+  }
+}
 
 img {
   max-width: 100%;

@@ -46,31 +46,31 @@ export default async function BooksPage({
 
   return (
     <section>
+      <h1>BookDragons</h1>
       <FilterSection authors={authorsOptions} genres={genresOptions}></FilterSection>
+      <div className="bookGrid">
+        {books.map((book) => {
+          if (!hasThumbnail(book.cover)) {
+            console.log('Bildet eksisterer ikke', book.title)
+            return null
+          }
 
-      {books.map((book) => {
-        if (!hasThumbnail(book.cover)) {
-          console.log('Bildet eksisterer ikke', book.title)
-          return null
-        }
+          if (!hasAuthor(book.author)) {
+            console.log('Forfatter eksisterer ikke', book.title)
+            return null
+          }
 
-        if (!hasAuthor(book.author)) {
-          console.log('Forfatter eksisterer ikke', book.title)
-          return null
-        }
+          if (!hasGenre(book.genre)) {
+            console.log('Sjanger eksisterer ikke', book.title)
+            return null
+          }
 
-        if (!hasGenre(book.genre)) {
-          console.log('Sjanger eksisterer ikke', book.title)
-          return null
-        }
+          const { url, width, height } = book.cover.sizes.thumbnail
+          const { alt } = book.cover
+          const { name: authorName } = book.author
+          const { name: genreName } = book.genre
 
-        const { url, width, height } = book.cover.sizes.thumbnail
-        const { alt } = book.cover
-        const { name: authorName } = book.author
-        const { name: genreName } = book.genre
-
-        return (
-          <div key={book.id}>
+          return (
             <BookCard
               bookUrl={`/bok/${book.slug}`}
               id={book.id}
@@ -86,9 +86,9 @@ export default async function BooksPage({
               stock={book.stock}
               age={book.ages}
             ></BookCard>
-          </div>
-        )
-      })}
+          )
+        })}
+      </div>
     </section>
   )
 }

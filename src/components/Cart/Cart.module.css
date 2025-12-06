@@ -1,3 +1,9 @@
 .cart {
-  background-color: var(--background-2);
+  height: 50vh;
+  overflow-y: auto;
+  position: sticky;
+  top: 20px;
+  border: 0.5rem solid var(--background-2);
 }
+
+/* Hvis tid, kanskje fint om summen også er sticky på bunnen */

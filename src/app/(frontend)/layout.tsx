@@ -1,7 +1,6 @@
 import React from 'react'
 import './styles.css'
 import NavBar from '@/components/NavBar/NavBar'
-import Cart from '@/components/Cart/Cart'
 
 export const metadata = {
   description: 'BookDragons nettbutikk',

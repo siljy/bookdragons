@@ -1,0 +1,6 @@
+.bookGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 15rem);
+  grid-template-rows: 1fr repeat(2, auto);
+  gap: 1rem;
+}

@@ -42,7 +42,7 @@ export default function BookCard({
     stock,
   }
   return (
-    <>
+    <article>
       <Link href={bookUrl}>
         <h2>{title}</h2>
         <Image src={coverUrl} alt={coverAlt} width={coverWidth} height={coverHeight}></Image>
@@ -53,6 +53,6 @@ export default function BookCard({
         <p>Anbefalt for: {age}</p>
       </Link>
       <AddToCartButton book={book}></AddToCartButton>
-    </>
+    </article>
   )
 }
