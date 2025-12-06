@@ -1,7 +1,36 @@
 .bookCard {
   display: grid;
-  grid-template-rows: subgrid;
-  grid-row: span 3;
   background-color: var(--background-2);
   border-radius: 0.5rem;
+  padding: 1rem;
+  margin-inline: 2rem;
+  max-width: 20rem;
+
+  img {
+    justify-self: center;
+  }
+}
+
+.cardText {
+  display: grid;
+  gap: 1rem;
+  margin-block: 1rem;
+  width: 100%;
+}
+
+.authorTag {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #eeeeee;
+}
+
+.priceTag {
+  color: var(--primary-1);
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
 }

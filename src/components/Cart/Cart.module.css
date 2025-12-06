@@ -1,5 +1,5 @@
 .cart {
-  height: 45vh;
+  height: 35vh;
   overflow-y: auto;
   border: 0.5rem solid var(--background-2);
 

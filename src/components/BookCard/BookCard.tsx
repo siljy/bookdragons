@@ -43,13 +43,19 @@ export default function BookCard({
   return (
     <article className={styles.bookCard}>
       <Link href={bookUrl}>
-        <h2>{title}</h2>
         <Image src={coverUrl} alt={coverAlt} width={coverWidth} height={coverHeight}></Image>
-        <p>{author}</p>
-        <p>{price}kr</p>
-        <p>{genre}</p>
-        <p>På lager: {stock}</p>
-        <p>Anbefalt for: {age}</p>
+        <div className={styles.cardText}>
+          <h2>{title}</h2>
+          <p className={styles.authorTag}>{author}</p>
+          <p>{genre}</p>
+          <p className={styles.priceTag}>{price}kr</p>
+          <div className={styles.details}>
+            <p>
+              På lager: <b>{stock}</b>
+            </p>
+            <p>Anbefalt for: {age}</p>
+          </div>
+        </div>
       </Link>
       <AddToCartButton book={book}></AddToCartButton>
     </article>
