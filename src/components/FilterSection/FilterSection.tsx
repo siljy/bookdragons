@@ -1,5 +1,6 @@
 'use client'
 
+import styles from './FilterSection.module.css'
 import { useRouter, useSearchParams } from 'next/navigation'
 import FilterItem from '../FilterItem/FilterItem'
 import { FilterOption } from '@/types/filter'
@@ -28,7 +29,7 @@ export default function FilterSection({ authors, genres }: FilterSectionProps) {
   }
 
   return (
-    <section>
+    <section className={styles.filterSection}>
       <FilterItem
         title="Filtrer etter forfatter"
         name="author"

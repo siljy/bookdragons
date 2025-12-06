@@ -46,7 +46,7 @@ export default async function BooksPage({
 
   return (
     <section>
-      <h1>BookDragons</h1>
+      <h1 className='title'>BookDragons</h1>
       <FilterSection authors={authorsOptions} genres={genresOptions}></FilterSection>
       <div className="bookGrid">
         {books.map((book) => {
