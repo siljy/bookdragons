@@ -35,13 +35,15 @@ export default async function AuthorPage({ params }: AuthorPageParams) {
         equals: author.id,
       },
     },
+    depth: 2
   })
 
   const books = queryResultBooks.docs
 
+
   return (
     <main>
-       <nav>
+      <nav>
         <Link href="/forfattere">Se alle forfattere</Link>
       </nav>
       <PresentationArticle
