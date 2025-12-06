@@ -1,0 +1,7 @@
+.bookCard {
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  background-color: var(--background-2);
+  border-radius: 0.5rem;
+}

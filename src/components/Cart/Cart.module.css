@@ -1,9 +1,13 @@
 .cart {
-  height: 50vh;
+  height: 45vh;
   overflow-y: auto;
-  position: sticky;
-  top: 20px;
   border: 0.5rem solid var(--background-2);
+
+  @media (min-width: 1024px) {
+    height: 60vh;
+    position: sticky;
+    top: 20px;
+  }
 }
 
 /* Hvis tid, kanskje fint om summen også er sticky på bunnen */

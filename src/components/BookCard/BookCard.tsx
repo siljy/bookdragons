@@ -1,6 +1,6 @@
 'use client'
 
-import styles from '.BookCard.module.css'
+import styles from './BookCard.module.css'
 import Image from 'next/image'
 import AddToCartButton from '../AddToCartButton/AddToCartButton'
 import Link from 'next/link'
@@ -34,7 +34,6 @@ export default function BookCard({
   stock,
   age,
 }: BookCardProps) {
-
   const book = {
     id,
     title,
@@ -42,7 +41,7 @@ export default function BookCard({
     stock,
   }
   return (
-    <article>
+    <article className={styles.bookCard}>
       <Link href={bookUrl}>
         <h2>{title}</h2>
         <Image src={coverUrl} alt={coverAlt} width={coverWidth} height={coverHeight}></Image>
