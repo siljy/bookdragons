@@ -1,5 +1,6 @@
 .cart {
-  height: 35vh;
+  min-height: 10vh;
+  max-height: 35vh;
   overflow-y: auto;
   overflow-x: hidden;
   border: 0.5rem solid var(--background-2);

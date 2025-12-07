@@ -1,5 +1,5 @@
-//Lagrer det kunden legger til i handlekurv i zustand
-//Samt funksjoner for å legge til, øke, minke og fjerne fra handlekurv
+//Lagrer det kunden legger til i handlekurv i zustand: cart
+//Funksjoner for å legge til, øke, minke og fjerne fra handlekurv
 
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
@@ -18,42 +18,36 @@ type CartState = {
 export const useCartStore = create<CartState>()(
   persist(
     (set, get, store) => ({
-      //Handlekurven
       cart: [],
 
       //Legg til bok i handlekurv
       addToCart: (book) => {
         const cart = get().cart
 
-        //Finner bok som har samme id som det som ligger i handlekurv
         const existingBook = cart.find((item) => item.id === book.id)
 
         let updatedCart
 
         if (existingBook) {
-          //Stopper brukeren fra å legge til flere bøker enn det er på lager
           if (existingBook.quantity >= book.stock) {
             alert('Det er ikke flere av denne på lager')
             return
           }
-          //Hvis boka er i handlekurven, øk antall
           updatedCart = cart.map((item) =>
             item.id === book.id ? { ...item, quantity: item.quantity + 1 } : item,
           )
         } else {
-          //Hvis ikke legges den til med 1 i quantity
           updatedCart = [...cart, { ...book, quantity: 1, stock: book.stock }]
         }
-        //Cart blir den oppdaterte handlekurven
+
         set({ cart: updatedCart })
       },
 
+      //Øke antall i handlekurv
       increaseCart: (id) => {
         const cart = get().cart
 
         const existingBook = cart.find((item) => item.id === id)
-
-        let updatedCart
 
         if (!existingBook) return
 
@@ -61,31 +55,30 @@ export const useCartStore = create<CartState>()(
           alert('Det er ikke flere av denne på lager')
           return
         }
-        updatedCart = cart.map((item) =>
+        let updatedCart = cart.map((item) =>
           item.id === id ? { ...item, quantity: item.quantity + 1 } : item,
         )
 
         set({ cart: updatedCart })
       },
 
+      //Minke antall i handlekurv
       decreaseCart: (id) => {
         const cart = get().cart
         const existingBook = cart.find((item) => item.id === id)
 
-        let updatedCart
-
-        //Varsler bruker om antall er 1
         if (existingBook && existingBook.quantity === 1) {
           alert('Kan ikke fjerne flere av denne boka')
           return
         }
 
-        updatedCart = cart.map((item) =>
+        let updatedCart = cart.map((item) =>
           item.id === id ? { ...item, quantity: item.quantity - 1 } : item,
         )
         set({ cart: updatedCart })
       },
 
+      //Fjerne bok fra handlekurv
       removeFromCart: (id) => {
         const cart = get().cart
 

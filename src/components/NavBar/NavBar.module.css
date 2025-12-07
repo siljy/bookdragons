@@ -26,13 +26,6 @@
 
     gap: 1rem;
   }
-  /* 
-
-    @media (min-width: 786px) {
-      flex-direction: row;
-      gap: 1;
-    }
-    */
 
   a:hover {
     text-decoration: underline;

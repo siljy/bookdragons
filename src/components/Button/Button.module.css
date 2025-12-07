@@ -1,9 +1,8 @@
 .button {
   padding: 0.5rem 1rem;
-  /* border-radius: 12px; */
-  /* borderradius blir påvirket av bookcard sin?? */
   font-size: 0.8rem;
   max-width: 10rem;
+  max-height: 2rem;
 }
 
 .primary {
