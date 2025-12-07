@@ -1,0 +1,21 @@
+.cartItem {
+  margin: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 0.1rem solid;
+}
+
+.textContent {
+  margin: 1rem;
+}
+
+.bookTitle {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.quantityButtons {
+  display: flex;
+  gap: 0.5rem;
+}

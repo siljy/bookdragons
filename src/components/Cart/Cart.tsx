@@ -33,10 +33,12 @@ export default function Cart() {
               stock={item.stock}
             ></CartItem>
           ))}
-          <h3>Sum: {total} kr</h3>
-          <Link href="/bestilling">
-            <Button type="button" variant="primary" text="Bestill" disabled={false}></Button>
-          </Link>
+          <div className={styles.orderSummary}>
+            <h3>Sum: {total} kr</h3>
+            <Link href="/bestilling">
+              <Button type="button" variant="primary" text="Bestill" disabled={false}></Button>
+            </Link>
+          </div>
         </div>
       )}
     </aside>

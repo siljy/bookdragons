@@ -1,13 +1,35 @@
 .cart {
   height: 35vh;
   overflow-y: auto;
+  overflow-x: hidden;
   border: 0.5rem solid var(--background-2);
+  border-radius: 4px;
+  margin-inline: 2rem;
+  padding: 0.5rem 1rem 0 1rem;
 
   @media (min-width: 1024px) {
     height: 60vh;
     position: sticky;
-    top: 20px;
+    top: 1.5rem;
+    margin-inline: 0;
+    padding: 0;
+  }
+
+  h2 {
+    padding-left: 1rem;
+
+    @media (min-width: 1024px) {
+      padding-top: 2rem;
+    }
   }
 }
 
-/* Hvis tid, kanskje fint om summen også er sticky på bunnen */
+.orderSummary {
+  display: flex;
+  justify-content: space-around;
+  position: sticky;
+  bottom: 0;
+  background-color: var(--background);
+  border-top: 0.2rem solid var(--background-2);
+  padding: 1rem;
+}

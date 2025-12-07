@@ -1,9 +1,8 @@
 .bookCard {
   display: grid;
   background-color: var(--background-2);
-  border-radius: 0.5rem;
+  border-radius: 6px;
   padding: 1rem;
-  margin-inline: 2rem;
   max-width: 20rem;
 
   img {

@@ -12,7 +12,7 @@ export default async function AuthorsPage() {
 
   return (
     <section>
-      <h1>Forfattere</h1>
+      <h1 className="title">Forfattere</h1>
       <ul>
         {authors.map((author) => (
           <li key={author.id}>

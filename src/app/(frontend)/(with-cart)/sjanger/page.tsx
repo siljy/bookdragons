@@ -12,7 +12,7 @@ export default async function GenresPage() {
 
   return (
     <section>
-      <h1>Sjangre</h1>
+      <h1 className="title">Sjangre</h1>
       <ul>
         {genres.map((genre) => (
           <li key={genre.id}>
