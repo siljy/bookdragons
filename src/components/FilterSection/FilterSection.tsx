@@ -32,14 +32,14 @@ export default function FilterSection({ authors, genres }: FilterSectionProps) {
     <section className={styles.filterSection}>
       <FilterItem
         title="Filtrer etter forfatter"
-        name="forfatter"
+        name="author"
         options={authors}
         value={searchParams.get('author') || 'all'}
         onChange={handleFilterChange}
       ></FilterItem>
       <FilterItem
         title="Filtrer etter sjanger"
-        name="sjanger"
+        name="genre"
         options={genres}
         value={searchParams.get('genre') || 'all'}
         onChange={handleFilterChange}
