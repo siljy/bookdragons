@@ -204,3 +204,13 @@ Under (frontend) er det delt opp i to mapper: with-cart og without-cart. Det er 
 ## Annen informasjon
 ### styles.css og CSS-moduler
 Det er brukt CSS-moduler for å style komponenter, mens sidene er stylet med styles.css. Disse "globale" CSS-filene er importert i layout.tsx, så de gjelder for alle sidene som er i samme mappe. Noen ganger har det vært mer fornuftig å bruke klassenavn i styles.css istedet for å lage en egen CSS-modul for et spesifikt komponent (hvis det f.eks. er veldig lite kode som hadde havnet i den modulen uansett). 
+
+## Kilder
+### Typeguarding
+Brukt litt av framgangsmåten fra MinGA: https://lms.gokstadakademiet.no/course/view.php?id=349#module-16132 (Under Bildebehandling med Payload og Sharp/Hente frem bilder i Frontend)
+
+For å gjøre det enda med typesikkert har jeg brukt en in-operator istedet for any: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/in  
+
+
+### Tekstinnhold
+For å ha litt data å jobbe med har jeg brukt KI til å lage tekstene om sjangre og forfattere for meg, slik at jeg kunne bruke tid på programmering isetedet
