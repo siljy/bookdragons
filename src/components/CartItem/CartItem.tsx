@@ -4,6 +4,8 @@ import DecreaseButton from '../DecreaseButton/DecreaseButton'
 import IncreaseButton from '../IncreaseButton/IncreaseButton'
 import RemoveFromCartButton from '../RemoveFromCartButton/RemoveFromCartButton'
 
+import { useCartStore } from '@/store/cartStore'
+
 export default function CartItem({ id, title, quantity, price }: BookInCart) {
   return (
     <div key={id} className={styles.cartItem}>
