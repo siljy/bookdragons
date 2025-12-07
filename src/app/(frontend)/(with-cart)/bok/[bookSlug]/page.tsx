@@ -3,7 +3,7 @@ import { getPayload } from 'payload'
 import config from '@payload-config'
 import Image from 'next/image'
 import Link from 'next/link'
-import { hasAuthor, hasThumbnail, hasGenre } from '@/utils/typeGuards'
+import { hasAuthor, hasGenre, hasMobileSize } from '@/utils/typeGuards'
 import AddToCartButton from '@/components/AddToCartButton/AddToCartButton'
 
 type BookPageParams = {
@@ -33,8 +33,8 @@ export default async function BookPage({ params }: BookPageParams) {
       </div>
     )
   }
-  
-  if (!hasThumbnail(book.cover)) {
+
+  if (!hasMobileSize(book.cover)) {
     console.log('Bildet eksisterer ikke', book.title)
     return null
   }
@@ -49,13 +49,13 @@ export default async function BookPage({ params }: BookPageParams) {
     return null
   }
 
-  const { url, width, height } = book.cover.sizes.thumbnail
+  const { url, width, height } = book.cover.sizes.mobile
   const { alt } = book.cover
   const { name: authorName } = book.author
   const { name: genreName } = book.genre
 
   return (
-    <section>
+    <section className="bookSection">
       <Image src={url} width={width} height={height} alt={alt}></Image>
       <h1>{book.title}</h1>
       <h2>{authorName}</h2>

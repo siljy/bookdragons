@@ -35,11 +35,10 @@ export default async function AuthorPage({ params }: AuthorPageParams) {
         equals: author.id,
       },
     },
-    depth: 2
+    depth: 2,
   })
 
   const books = queryResultBooks.docs
-
 
   return (
     <section>
