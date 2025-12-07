@@ -7,6 +7,11 @@ type CoverGuardTypes = {
       width: number
       height: number
     }
+    mobile: {
+      url: string
+      width: number
+      height: number
+    }
   }
 }
 
@@ -25,6 +30,21 @@ export function hasThumbnail(photo: unknown): photo is Bookcover & CoverGuardTyp
     typeof thumbnail.url === 'string' &&
     typeof thumbnail.width === 'number' &&
     typeof thumbnail.height === 'number'
+  )
+}
+
+export function hasMobileSize(photo: unknown): photo is Bookcover & CoverGuardTypes {
+  if (!photo || typeof photo !== 'object' || !('sizes' in photo)) {
+    return false
+  }
+  const sizes = (photo as any).sizes
+  const mobile = sizes?.mobile
+
+  return (
+    mobile &&
+    typeof mobile.url === 'string' &&
+    typeof mobile.width === 'number' &&
+    typeof mobile.height === 'number'
   )
 }
 

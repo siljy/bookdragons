@@ -1,3 +1,14 @@
+.bookSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-inline: 1rem;
+
+  img {
+    align-self: center;
+  }
+}
+
 .title {
   padding-inline: 2rem;
 }
