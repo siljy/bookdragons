@@ -15,7 +15,7 @@ export default function PresentationArticle({
   books,
 }: PresentationArticleProps) {
   return (
-    <article>
+    <article className={styles.article}>
       <h1>{name}</h1>
       <p>{presentation}</p>
       <h2>Bøker:</h2>

@@ -5,7 +5,9 @@
   grid-row: span 3;
   place-items: center;
   border-radius: 6px;
-  img {
-    margin: 0.5rem 0 1rem 0;
+  padding: 1rem;
+
+  h3 {
+    text-align: center;
   }
 }

@@ -23,12 +23,10 @@ export default function MinimalBookCard({
   slug,
 }: MinimalBookCardProps) {
   return (
-    <Link href={`/bok/${slug}`}>
-      <div className={styles.minimalBookCard}>
-        <h3>{title}</h3>
-        <p>{author}</p>
-        <Image src={coverUrl} alt={coverAlt} width={coverWidth} height={coverHeight}></Image>
-      </div>
+    <Link className={styles.minimalBookCard} href={`/bok/${slug}`}>
+      <Image src={coverUrl} alt={coverAlt} width={coverWidth} height={coverHeight}></Image>
+      <h3>{title}</h3>
+      <p>{author}</p>
     </Link>
   )
 }
