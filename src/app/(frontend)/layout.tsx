@@ -16,8 +16,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
         <header>
           <NavBar></NavBar>
         </header>
-        <main>
-          {children}</main>
+        <main>{children}</main>
       </body>
     </html>
   )

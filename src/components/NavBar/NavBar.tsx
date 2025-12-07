@@ -4,9 +4,11 @@ import styles from './NavBar.module.css'
 export default function NavBar() {
   return (
     <nav className={styles.navigation}>
-      <Link href="/">BookDragons</Link>
-      <Link href="/forfatter">Forfattere</Link>
-      <Link href="/sjanger">Sjangre</Link>
+      <Link className={styles.logo} href="/">BookDragons</Link>
+      <div className={styles.navLinks}>
+        <Link href="/forfatter">Forfattere</Link>
+        <Link href="/sjanger">Sjangre</Link>
+      </div>
     </nav>
   )
 }

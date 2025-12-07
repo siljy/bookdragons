@@ -1,22 +1,38 @@
 .navigation {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 1rem;
+  gap: 1rem;
+  padding: 1rem 0.2rem;
   font-size: 1rem;
   font-weight: bold;
+  width: 100%;
 
-  :first-child {
+  @media (min-width: 786px) {
+    padding-bottom: 3rem;
+    font-size: 1.5rem;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+  }
+
+  .logo {
     color: var(--primary);
     background-color: var(--primary-1);
-
     padding: 0.5rem 1rem;
   }
 
-  @media (min-width: 786px) {
-    font-size: 1.5rem;
-    justify-content: space-evenly;
+  .navLinks {
+    display: flex;
+
+    gap: 1rem;
   }
+  /* 
+
+    @media (min-width: 786px) {
+      flex-direction: row;
+      gap: 1;
+    }
+    */
 
   a:hover {
     text-decoration: underline;

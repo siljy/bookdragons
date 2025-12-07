@@ -4,11 +4,7 @@
   margin-block: 1rem;
 
   select {
-    width: 50vw;
+    max-width: 50vw;
     padding: 0.5rem;
-
-    @media (min-width: 786px) {
-      width: 30vw;
-    }
   }
 }
