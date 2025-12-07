@@ -11,3 +11,9 @@ section {
 .totalCost {
   font-size: 2rem;
 }
+
+.orderInformation {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
