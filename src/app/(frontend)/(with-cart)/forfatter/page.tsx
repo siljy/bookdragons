@@ -6,6 +6,7 @@ export default async function AuthorsPage() {
   const payload = await getPayload({ config })
   const queryResult = await payload.find({
     collection: 'authors',
+    sort: "name",
   })
 
   const authors = queryResult.docs

@@ -6,6 +6,7 @@ export default async function GenresPage() {
   const payload = await getPayload({ config })
   const queryResult = await payload.find({
     collection: 'genres',
+    sort: 'name',
   })
 
   const genres = queryResult.docs
@@ -16,7 +17,9 @@ export default async function GenresPage() {
       <ul>
         {genres.map((genre) => (
           <li key={genre.id}>
-            <Link className='link' href={`sjanger/${genre.slug}`}>{genre.name}</Link>
+            <Link className="link" href={`sjanger/${genre.slug}`}>
+              {genre.name}
+            </Link>
           </li>
         ))}
       </ul>
