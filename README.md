@@ -184,7 +184,9 @@ Under (frontend) er det delt opp i to mapper: with-cart og without-cart. Det er 
 
 - #### BookCovers
 
-  BookCovers er bilder som admin kan laste opp og vise tilstanden av omslaget til boken. Den genererer tre størrelser ut fra sharp, i tillegg til den som lastes opp, slik at man kan velge mellom thumbnail, mobil og desktop størrelser. Prosjektet har enda ikke brukt desktop-størrelsen, da mobil-størrelsen viste seg å være passelig for nå. Her må admin også legge til alt-tekst.
+  BookCovers er bilder som admin kan laste opp og vise tilstanden av omslaget til boken, samt alt-tekst. Den genererer tre størrelser ut fra sharp, i tillegg til den som lastes opp, slik at man kan velge mellom thumbnail, mobil og desktop størrelser. Prosjektet har enda ikke brukt desktop-størrelsen, da mobil-størrelsen viste seg å være passelig for nå. Skal desktop-størrelsene brukes må det settes opp en typeguard for dette i utils/typeGuards.ts.
+
+  På grunn av opphavsrett er det brukt et generisk bilde av en bok hentet fra unsplash.com, for å ha noe å jobbe med. Når admin-brukeren tar bilder av omslaget er det fortsatt lett å legge dette inn her og koble det opp mot bøker.
 
 - #### Books
 
