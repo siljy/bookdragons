@@ -56,6 +56,9 @@ export default async function BookPage({ params }: BookPageParams) {
 
   return (
     <section className="bookSection">
+      <nav>
+        <Link href="/">Tilbake til alle bøker</Link>
+      </nav>
       <Image src={url} width={width} height={height} alt={alt}></Image>
       <h1>{book.title}</h1>
       <h2>{authorName}</h2>
