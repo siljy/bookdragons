@@ -63,11 +63,15 @@ export default async function BookPage({ params }: BookPageParams) {
       </nav>
       <Image src={url} width={width} height={height} alt={alt}></Image>
       <h1>{book.title}</h1>
-      <h2>{authorName}</h2>
+      <Link className="link" href={`/forfatter/${book.author.slug}`}>
+        <h2>{authorName}</h2>
+      </Link>
       <p>{book.description}</p>
       <p>Aldersgruppe: {book.ages}</p>
       <p>På lager: {book.stock}</p>
-      <p>Tilhører sjanger: {genreName}</p>
+      <Link className="link" href={`/sjanger/${book.genre.slug}`}>
+        <p>Tilhører sjanger: {genreName}</p>
+      </Link>
       <AddToCartButton book={book}></AddToCartButton>
     </section>
   )
