@@ -8,7 +8,8 @@
     align-self: center;
   }
 }
-nav a:hover {
+
+.link:hover {
   text-decoration: underline;
 }
 

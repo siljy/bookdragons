@@ -16,7 +16,7 @@ export default async function GenresPage() {
       <ul>
         {genres.map((genre) => (
           <li key={genre.id}>
-            <Link href={`sjanger/${genre.slug}`}>{genre.name}</Link>
+            <Link className='link' href={`sjanger/${genre.slug}`}>{genre.name}</Link>
           </li>
         ))}
       </ul>

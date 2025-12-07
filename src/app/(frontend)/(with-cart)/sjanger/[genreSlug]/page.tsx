@@ -42,7 +42,7 @@ export default async function GenrePage({ params }: GenrePageParams) {
   return (
     <section>
       <nav>
-        <Link href="/sjanger">Se alle sjangre</Link>
+        <Link className='link' href="/sjanger">Tilbake til alle sjangre</Link>
       </nav>
       <PresentationArticle
         name={genre.name}

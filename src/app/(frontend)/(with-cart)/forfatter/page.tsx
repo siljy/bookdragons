@@ -16,7 +16,9 @@ export default async function AuthorsPage() {
       <ul>
         {authors.map((author) => (
           <li key={author.id}>
-            <Link href={`/forfatter/${author.slug}`}>{author.name}</Link>
+            <Link className="link" href={`/forfatter/${author.slug}`}>
+              {author.name}
+            </Link>
           </li>
         ))}
       </ul>
