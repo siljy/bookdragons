@@ -1,0 +1,13 @@
+.minimalBookCard {
+  background-color: var(--primary-4);
+  display: grid;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+  place-items: center;
+  border-radius: 6px;
+  padding: 1rem;
+
+  h3 {
+    text-align: center;
+  }
+}

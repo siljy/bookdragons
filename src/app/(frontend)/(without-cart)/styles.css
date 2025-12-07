@@ -1,0 +1,19 @@
+section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.bookTitle {
+  font-size: 1.5rem;
+}
+
+.totalCost {
+  font-size: 2rem;
+}
+
+.orderInformation {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}

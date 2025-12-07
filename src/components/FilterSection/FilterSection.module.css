@@ -1,0 +1,12 @@
+.filterSection {
+  border-bottom: solid 0.2rem var(--primary-1);
+  margin-bottom: 2rem;
+  padding-inline: 2rem;
+  display: flex;
+  flex-direction: column;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+    gap: 1rem;
+  }
+}

@@ -1,0 +1,25 @@
+.bookSection {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding-inline: 1rem;
+
+  img {
+    align-self: center;
+  }
+}
+
+.link:hover {
+  text-decoration: underline;
+}
+
+.title {
+  padding-inline: 2rem;
+}
+
+.bookGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: 1rem 0;
+  justify-items: center;
+}

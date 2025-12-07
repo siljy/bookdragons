@@ -1,0 +1,10 @@
+.filterItem {
+  display: flex;
+  flex-direction: column;
+  margin-block: 1rem;
+
+  select {
+    max-width: 50vw;
+    padding: 0.5rem;
+  }
+}
