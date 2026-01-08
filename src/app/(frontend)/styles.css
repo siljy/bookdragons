@@ -1,32 +1,33 @@
 :root {
   --font-mono: 'Roboto Mono', monospace;
 
-  --primary: #480c31;
-  --secondary: #694f11;
-  --background: #0c0c0c;
-  --disabled: #cbcaca;
+  --primary: #470d31;
+  --secondary: ##a44e0d;
+  --background: #fbf5f1;
+  --disabled: #b4b4b4;
   --error: #cd353b;
 
-  --primary-1: #e8add0;
-  --primary-2: #6c3a59;
-  --primary-3: #3a0a27;
-  --primary-4: #1e0514;
+  --primary-1: #f0dfe9;
+  --primary-2: #e6b6d2;
+  --primary-3: #cd6aa4;
+  --primary-4: #942466;
+  --primary-5: #88185d;
 
-  --secondary-1: #ad9d6d;
-  --secondary-2: #8b763f;
-  --secondary-3: #543f0e;
-  --secondary-4: #3f2f0a;
+  --secondary-1: #eaa673;
+  --secondary-2: #bf621c;
 
-  --background-1: #4f4e4e;
-  --background-2: #2d2c2c;
-  --background-3: #090808;
-  --background-4: #070606;
+  --background-1: #f3ebe6;
+  --background-2: #ffffff;
+
+  --gray-1: #f6f6f6;
+  --gray-2: #a19f9f;
+  --gray-3: #252525;
+  --gray-4: #070606;
 }
 
 * {
   box-sizing: border-box;
   margin: 0;
-  /* outline: 1px solid red; */
 }
 
 html {
@@ -46,8 +47,6 @@ body {
   font-family: system-ui;
   font-size: 18px;
   line-height: 32px;
-
-  color: rgb(1000, 1000, 1000);
 
   @media (max-width: 1024px) {
     font-size: 15px;
@@ -109,8 +108,12 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
   line-height: 1.1;
+
+  @media (min-width: 1024px) {
+    font-size: 2rem;
+  }
 }
 
 h3 {

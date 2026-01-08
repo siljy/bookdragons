@@ -31,8 +31,8 @@ export default async function GenrePage({ params }: GenrePageParams) {
   const queryResultBooks = await payload.find({
     collection: 'books',
     where: {
-      author: {
-        equals: genre.id,
+      'genre.slug': {
+        equals: genreSlug,
       },
     },
   })
@@ -42,7 +42,9 @@ export default async function GenrePage({ params }: GenrePageParams) {
   return (
     <section>
       <nav>
-        <Link className='link' href="/sjanger">Tilbake til alle sjangre</Link>
+        <Link className="link" href="/sjanger">
+          Tilbake til alle sjangre
+        </Link>
       </nav>
       <PresentationArticle
         name={genre.name}

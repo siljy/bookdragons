@@ -67,11 +67,11 @@ export default async function BookPage({ params }: BookPageParams) {
         <h2>{authorName}</h2>
       </Link>
       <p>{book.description}</p>
+      <Link className="link" href={`/sjanger/${book.genre.slug}`}>
+        {genreName}
+      </Link>
       <p>Aldersgruppe: {book.ages}</p>
       <p>På lager: {book.stock}</p>
-      <Link className="link" href={`/sjanger/${book.genre.slug}`}>
-        <p>Tilhører sjanger: {genreName}</p>
-      </Link>
       <AddToCartButton book={book}></AddToCartButton>
     </section>
   )
