@@ -2,13 +2,13 @@
   padding: 0.5rem 1rem;
   font-size: 0.8rem;
   max-width: 10rem;
-  max-height: 2rem;
+  border-radius: 5px;
 }
 
 .primary {
   background-color: var(--primary);
   color: white;
-  border: solid 0.1rem var(--primary-4);
+  border: solid 0.1rem var(--primary-1);
 
   &:hover {
     background-color: var(--primary-4);
@@ -16,7 +16,7 @@
   }
 }
 
-.secondary {
+/* .secondary {
   background-color: var(--secondary);
   color: white;
   border: solid 0.1rem var(--secondary-4);
@@ -25,11 +25,11 @@
     background-color: var(--secondary-4);
     cursor: pointer;
   }
-}
+} */
 
 .disabled {
   background-color: var(--disabled);
-  border: solid 0.1rem var(--background-2);
-  color: var(--background);
+  border: solid 0.1rem var(--gray-1);
+  color: var(--gray-3);
   cursor: not-allowed;
 }

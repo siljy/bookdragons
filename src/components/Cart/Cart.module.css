@@ -3,18 +3,24 @@
   max-height: 35vh;
   overflow-y: auto;
   overflow-x: hidden;
-  border: 0.5rem solid var(--background-2);
+  border: 0.3rem solid var(--primary-4);
   border-radius: 4px;
 
   @media (min-width: 1024px) {
-    height: 60vh;
+    min-height: 40vh;
+    max-height: 90vh;
+    height: fit-content;
     position: sticky;
     top: 1.5rem;
   }
 
   h2 {
-    padding-left: 1rem;
+    padding-left: 2rem;
     padding-top: 1rem;
+
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
   }
 }
 
@@ -25,7 +31,7 @@
   position: sticky;
   bottom: 0;
   background-color: var(--background);
-  border-top: 0.2rem solid var(--background-2);
+  border-top: 0.2rem solid var(--gray-2);
   padding: 1rem;
   margin-inline: -1rem;
 }

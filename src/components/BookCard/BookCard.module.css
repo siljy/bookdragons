@@ -1,11 +1,19 @@
 .bookCard {
   display: grid;
-  background-color: var(--background-2);
+  background-color: var(--background-1);
   border-radius: 6px;
   padding: 1rem;
-  max-width: 14rem;
+  width: 12rem;
 
+  @media (min-width: 768px) {
+    width: 14rem;
+  }
+
+  &:hover {
+    background-color: var(--background-2);
+  }
   img {
+    width: 100%;
     justify-self: center;
   }
 }
@@ -18,18 +26,22 @@
 }
 
 .authorTag {
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
-  color: #eeeeee;
+  color: var(--gray-3);
 }
 
 .priceTag {
-  color: var(--primary-1);
-  font-size: 1.5rem;
+  color: var(--primary);
+  font-size: 1.6rem;
   font-weight: bold;
 }
 
 .details {
   display: flex;
   flex-direction: column;
+}
+
+.ctaButton {
+  align-self: end;
 }

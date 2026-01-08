@@ -46,10 +46,10 @@ export default function BookCard({
         <Image src={coverUrl} alt={coverAlt} width={coverWidth} height={coverHeight}></Image>
         <div className={styles.cardText}>
           <h2>{title}</h2>
-          <p className={styles.authorTag}>{author}</p>
-          <p>{genre}</p>
           <p className={styles.priceTag}>{price}kr</p>
+          <p className={styles.authorTag}>{author}</p>
           <div className={styles.details}>
+            <p>{genre}</p>
             <p>
               På lager: <b>{stock}</b>
             </p>
@@ -57,7 +57,9 @@ export default function BookCard({
           </div>
         </div>
       </Link>
-      <AddToCartButton book={book}></AddToCartButton>
+      <div className={styles.ctaButton}>
+        <AddToCartButton book={book}></AddToCartButton>
+      </div>
     </article>
   )
 }
