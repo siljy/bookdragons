@@ -25,6 +25,7 @@ section {
     background-color: var(--primary);
     color: white;
     border: solid 0.1rem var(--primary-4);
+    border-radius: 5px;
 
     &:hover {
       background-color: var(--primary-4);

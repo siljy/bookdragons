@@ -35,9 +35,7 @@ export default function Cart() {
           ))}
           <div className={styles.orderSummary}>
             <h3>Sum: {total} kr</h3>
-            <Link href="/bestilling">
-              <Button type="button" variant="primary" text="Bestill" disabled={false}></Button>
-            </Link>
+            <Link href="/bestilling">Bestill</Link>
           </div>
         </div>
       )}
